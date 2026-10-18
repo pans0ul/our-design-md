@@ -197,6 +197,22 @@ const CLIENT_JS = `
 
   var root = document.documentElement;
 
+  /* ---------------- theme toggle ---------------- */
+  var themeBtn = document.getElementById('theme-toggle');
+  function applyTheme(mode) {
+    root.setAttribute('data-theme', mode);
+    if (themeBtn) themeBtn.setAttribute('aria-pressed', mode === 'dark' ? 'true' : 'false');
+  }
+  if (themeBtn) themeBtn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try { localStorage.setItem('dg-theme', next); } catch (e) {}
+  });
+  try {
+    var savedTheme = localStorage.getItem('dg-theme');
+    if (savedTheme === 'light' || savedTheme === 'dark') applyTheme(savedTheme);
+  } catch (e) {}
+
   /* ---------------- language toggle ---------------- */
   var langBtn = document.getElementById('lang-toggle');
   var langLabelEl = document.getElementById('lang-label');
@@ -434,6 +450,7 @@ const CLIENT_JS = `
     grid.setAttribute('aria-label', t('gridAria'));
     emptyEl.textContent = t('emptyText');
     if (subEl) subEl.textContent = SUBTITLE[l] || SUBTITLE.zh;
+    if (themeBtn) themeBtn.setAttribute('aria-label', t('themeAria'));
     langBtn.setAttribute('aria-label', t('langAria'));
     langLabelEl.textContent = t('langLabel');
     if (modalCloseBtn) modalCloseBtn.setAttribute('aria-label', t('modalClose'));
@@ -487,6 +504,7 @@ const I18N = {
     countMid: ' / ',
     countSuffix: ' 个设计系统',
     langAria: '切换语言',
+    themeAria: '切换主题',
     modalClose: '关闭预览',
     modalFrameTitle: '品牌预览',
     footerPrefix: '数据更新于 ',
@@ -516,6 +534,7 @@ const I18N = {
     countMid: ' / ',
     countSuffix: ' design systems',
     langAria: 'Switch language',
+    themeAria: 'Toggle theme',
     modalClose: 'Close preview',
     modalFrameTitle: 'Brand preview',
     footerPrefix: 'Updated ',
@@ -548,12 +567,13 @@ const chipsHtml = [
 ].join('\n        ');
 
 const html = `<!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
-<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#181e25" media="(prefers-color-scheme: dark)">
 <meta name="description" content="${escHtml(index.subtitle)}">
 <title>${escHtml(index.title)} · Design System Gallery</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233B82F6'/%3E%3Cstop offset='1' stop-color='%239046FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-family='sans-serif' font-size='30' font-weight='700' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
@@ -566,16 +586,40 @@ const html = `<!doctype html>
   html{scroll-behavior:smooth}
   html.modal-open{overflow:hidden}
   :root{
-    /* Tokens from design-md/minimax/DESIGN.md */
+    /* Light tokens: design-md/minimax/DESIGN.md */
     --canvas:#ffffff;--surface:#f7f8fa;--surface-soft:#f2f3f5;
     --hairline:#e5e7eb;--hairline-soft:#eaecf0;
     --ink:#0a0a0a;--ink-strong:#000000;--charcoal:#222222;
     --slate:#45515e;--steel:#5f5f5f;--stone:#8e8e93;--muted:#a8aab2;
     --coral:#ff5530;--magenta:#ea5ec1;--blue:#1456f0;--blue-mid:#3b82f6;
     --blue-deep:#1d4ed8;--cyan:#3daeff;--blue-200:#bfdbfe;--purple:#a855f7;
-    --success-bg:#e8ffea;--success-text:#1ba673;--footer-bg:#0a0a0a;
+    --success-bg:#e8ffea;--success-text:#1ba673;
+    --card-bg:#ffffff;--control-bg:#ffffff;--modal-bg:#ffffff;
+    --accent:#0a0a0a;--accent-hover:#222222;--accent-ink:#ffffff;
+    --focus:#1d4ed8;--ring:rgba(29,78,216,.18);
+    --chip-bg:#bfdbfe;--chip-ink:#1d4ed8;
+    --footer-bg:#0a0a0a;--footer-ink:#ffffff;--footer-dim:#a8aab2;
+    --toolbar-bg:#ffffff;--toolbar-blur:none;
+    --modal-shadow:0 12px 16px -4px rgba(36,36,36,.08);
+    --backdrop:rgba(10,10,10,.40);
     --font:'DM Sans',Inter,-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
     color-scheme:light;
+  }
+  /* Dark tokens: design-md/minimax/preview-dark.html */
+  [data-theme="dark"]{
+    --canvas:#181e25;--surface:#1f2731;--surface-soft:#252d38;
+    --hairline:rgba(255,255,255,.08);--hairline-soft:rgba(255,255,255,.06);
+    --ink:#f0f2f5;--ink-strong:#ffffff;--charcoal:#252d38;
+    --slate:#a0a8b4;--steel:#a0a8b4;--stone:#6b7280;--muted:#6b7280;
+    --card-bg:#1f2731;--control-bg:rgba(255,255,255,.06);--modal-bg:#1f2731;
+    --accent:#3b82f6;--accent-hover:#2563eb;--accent-ink:#ffffff;
+    --focus:#3b82f6;--ring:rgba(59,130,246,.20);
+    --chip-bg:rgba(59,130,246,.18);--chip-ink:#bfdbfe;
+    --footer-bg:#111820;--footer-ink:rgba(255,255,255,.8);--footer-dim:rgba(255,255,255,.4);
+    --toolbar-bg:rgba(24,30,37,.92);--toolbar-blur:blur(12px);
+    --modal-shadow:0 12px 16px -4px rgba(0,0,0,.30);
+    --backdrop:rgba(0,0,0,.60);
+    color-scheme:dark;
   }
   body{
     margin:0;min-height:100vh;overflow-x:hidden;
@@ -583,8 +627,8 @@ const html = `<!doctype html>
     background:var(--canvas);color:var(--ink);line-height:1.5;
     -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   }
-  ::selection{background:rgba(29,78,216,.18)}
-  :focus-visible{outline:2px solid var(--blue-deep);outline-offset:2px}
+  ::selection{background:var(--ring)}
+  :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 
   /* ---------- top bar ---------- */
   .topbar{display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:0 32px;height:64px;border-bottom:1px solid var(--hairline-soft);background:var(--canvas)}
@@ -592,9 +636,11 @@ const html = `<!doctype html>
   .logo em{font-style:normal;color:var(--steel)}
   .topbar-actions{display:flex;align-items:center;gap:8px}
   .lang-btn{font-weight:600;font-size:.875rem;letter-spacing:0}
-  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9999px;border:1px solid var(--hairline);background:var(--canvas);color:var(--ink);cursor:pointer;transition:border-color .18s ease;flex:none}
+  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:9999px;border:1px solid var(--hairline);background:var(--control-bg);color:var(--ink);cursor:pointer;transition:border-color .18s ease;flex:none}
   .icon-btn:hover{border-color:var(--muted)}
-  .icon-btn svg{width:18px;height:18px}
+  .icon-btn svg{width:18px;height:18px;stroke-width:1.5}
+  [data-theme="dark"] .i-moon{display:none}
+  [data-theme="light"] .i-sun{display:none}
 
   /* ---------- hero ---------- */
   .hero{text-align:center;padding:96px 24px 64px;max-width:920px;margin:0 auto}
@@ -605,17 +651,17 @@ const html = `<!doctype html>
   .chip b{font-family:var(--font);font-weight:600;font-size:2.5rem;line-height:1.2;letter-spacing:-.025em;color:var(--ink)}
 
   /* ---------- toolbar ---------- */
-  .toolbar{position:sticky;top:0;z-index:40;background:var(--canvas);border-bottom:1px solid var(--hairline);padding:20px 32px}
+  .toolbar{position:sticky;top:0;z-index:40;background:var(--toolbar-bg);backdrop-filter:var(--toolbar-blur);-webkit-backdrop-filter:var(--toolbar-blur);border-bottom:1px solid var(--hairline);padding:20px 32px}
   .toolbar-inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:16px}
   .search-wrap{position:relative;width:min(560px,100%)}
-  .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--steel);pointer-events:none}
+  .search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--steel);stroke-width:1.5;pointer-events:none}
   #search{width:100%;height:40px;padding:0 14px 0 40px;border-radius:8px;border:1px solid var(--hairline);background:var(--surface);color:var(--ink);font-family:var(--font);font-size:1rem;line-height:1.5;outline:none;transition:border-color .18s ease}
   #search::placeholder{color:var(--steel)}
-  #search:focus{border:2px solid var(--blue-deep)}
+  #search:focus{border:2px solid var(--focus);box-shadow:0 0 0 3px var(--ring)}
   .pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:1120px}
   .pill{padding:8px 16px;border-radius:9999px;border:1px solid var(--hairline);background:var(--canvas);color:var(--steel);font-family:var(--font);font-size:.875rem;font-weight:500;line-height:1.5;cursor:pointer;transition:border-color .18s ease,background .18s ease,color .18s ease;white-space:nowrap}
   .pill:hover{border-color:var(--muted);color:var(--ink)}
-  .pill.active{background:var(--ink);border-color:var(--ink);color:#fff}
+  .pill.active{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
   .count{margin:0;font-size:.8125rem;line-height:1.7;color:var(--steel)}
 
   /* ---------- grid + cards ---------- */
@@ -626,7 +672,7 @@ const html = `<!doctype html>
 
   .card{
     display:flex;flex-direction:column;
-    background:var(--canvas);border:1px solid var(--hairline);border-radius:16px;overflow:hidden;
+    background:var(--card-bg);border:1px solid var(--hairline);border-radius:16px;overflow:hidden;
     transition:border-color .18s ease;
     content-visibility:auto;contain-intrinsic-size:auto 460px;
   }
@@ -651,23 +697,23 @@ const html = `<!doctype html>
   .card-cat{margin:0;font-size:.875rem;line-height:1.5;color:var(--steel)}
   .card-desc{margin:0;font-size:.875rem;line-height:1.5;color:var(--slate);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.6em}
   .badges{display:flex;flex-wrap:wrap;gap:6px}
-  .badge{font-size:.75rem;font-weight:600;line-height:1.5;padding:2px 8px;border-radius:6px;background:var(--blue-200);color:var(--blue-deep)}
+  .badge{font-size:.75rem;font-weight:600;line-height:1.5;padding:2px 8px;border-radius:6px;background:var(--chip-bg);color:var(--chip-ink)}
   .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:16px;border-top:1px solid var(--hairline-soft)}
-  .btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;border:1px solid var(--hairline);background:var(--canvas);color:var(--ink);font-family:var(--font);font-size:.875rem;font-weight:600;line-height:1.4;text-decoration:none;cursor:pointer;transition:border-color .18s ease,background .18s ease;white-space:nowrap}
+  .btn{display:inline-flex;align-items:center;gap:5px;padding:8px 16px;border-radius:9999px;border:1px solid var(--hairline);background:var(--control-bg);color:var(--ink);font-family:var(--font);font-size:.875rem;font-weight:600;line-height:1.4;text-decoration:none;cursor:pointer;transition:border-color .18s ease,background .18s ease;white-space:nowrap}
   .btn:hover{border-color:var(--muted)}
-  .btn-primary{background:var(--ink);border-color:var(--ink);color:#fff}
-  .btn-primary:hover{background:var(--charcoal);border-color:var(--charcoal)}
+  .btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
 
   .empty{text-align:center;color:var(--steel);padding:96px 24px;font-size:1rem;line-height:1.5}
 
-  footer{background:var(--footer-bg);color:var(--muted);padding:64px 32px;text-align:center;font-size:.875rem;line-height:1.5}
-  footer a{color:#fff;text-decoration:none}
+  footer{background:var(--footer-bg);color:var(--footer-dim);padding:64px 32px;text-align:center;font-size:.875rem;line-height:1.5}
+  footer a{color:var(--footer-ink);text-decoration:none}
   footer a:hover{text-decoration:underline}
-  footer code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8125rem;color:var(--muted)}
+  footer code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.8125rem;color:var(--footer-dim)}
 
   /* ---------- preview modal ---------- */
-  dialog#preview-modal{width:min(1240px,94vw);padding:0;border:1px solid var(--hairline);border-radius:16px;background:var(--canvas);color:var(--ink);box-shadow:0 12px 16px -4px rgba(36,36,36,.08);overflow:hidden}
-  dialog#preview-modal::backdrop{background:rgba(10,10,10,.40)}
+  dialog#preview-modal{width:min(1240px,94vw);padding:0;border:1px solid var(--hairline);border-radius:16px;background:var(--modal-bg);color:var(--ink);box-shadow:var(--modal-shadow);overflow:hidden}
+  dialog#preview-modal::backdrop{background:var(--backdrop)}
   .modal-head{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--hairline);flex-wrap:wrap}
   .modal-title-wrap{flex:1;min-width:180px}
   #modal-title{margin:0;font-family:var(--font);font-size:1.25rem;font-weight:600;line-height:1.4;letter-spacing:-.01em}
@@ -683,6 +729,8 @@ const html = `<!doctype html>
     .hero{padding:56px 20px 40px}
     .hero h1{font-size:2.5rem}
     .chips{gap:32px}
+    .icon-btn{width:44px;height:44px}
+    .icon-btn svg{width:20px;height:20px}
   }
   @media (max-width:620px){
     .pills{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;max-width:100%;padding-bottom:4px;scrollbar-width:none}
@@ -708,6 +756,10 @@ const html = `<!doctype html>
   <a class="logo" href="./">our design<em>.md</em></a>
   <div class="topbar-actions">
   <button id="lang-toggle" class="icon-btn lang-btn" type="button" aria-label="切换语言 / Switch language"><span id="lang-label">中</span></button>
+  <button id="theme-toggle" class="icon-btn" type="button" aria-label="切换主题 / Toggle theme" aria-pressed="false">
+    <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
   </div>
 </header>
 
@@ -723,7 +775,7 @@ const html = `<!doctype html>
   <section class="toolbar">
     <div class="toolbar-inner">
       <div class="search-wrap">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
         <input id="search" type="search" placeholder="搜索品牌 / Search brands…" aria-label="搜索品牌 / Search brands" autocomplete="off" spellcheck="false">
       </div>
       <div class="pills" id="pills" role="group" aria-label="分类筛选 / Category filters"></div>
@@ -747,7 +799,7 @@ const html = `<!doctype html>
     </div>
     <div class="modal-actions" id="modal-actions"></div>
     <button id="modal-close" class="icon-btn" type="button" aria-label="关闭预览 / Close preview">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
   </div>
   <div class="modal-body">
