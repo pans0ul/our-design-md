@@ -1,6 +1,6 @@
 <div align="center">
 
-# our design.md
+# Our Design.md
 
 112 个品牌的设计系统规范（`DESIGN.md`），用于让 AI 编码助手输出风格一致的界面。
 

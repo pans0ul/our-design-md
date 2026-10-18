@@ -1,6 +1,6 @@
 <div align="center">
 
-# our design.md
+# Our Design.md
 
 Design-system specs (`DESIGN.md`) for 112 brands, used to make AI coding agents produce visually consistent interfaces.
 
