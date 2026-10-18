@@ -753,7 +753,7 @@ const html = `<!doctype html>
 <body>
 
 <header class="topbar">
-  <a class="logo" href="./">our design<em>.md</em></a>
+  <a class="logo" href="./">Our Design<em>.md</em></a>
   <div class="topbar-actions">
   <button id="lang-toggle" class="icon-btn lang-btn" type="button" aria-label="切换语言 / Switch language"><span id="lang-label">中</span></button>
   <button id="theme-toggle" class="icon-btn" type="button" aria-label="切换主题 / Toggle theme" aria-pressed="false">
