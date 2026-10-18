@@ -1,6 +1,6 @@
 <div align="center">
 
-# Awesome Design MD
+# our design.md
 
 **Design-system specs (`DESIGN.md`) for 112 well-known brands, ready for AI coding agents to generate visually consistent UI.**
 

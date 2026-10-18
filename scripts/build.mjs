@@ -119,7 +119,6 @@ const brands = index.brands.map((b) => {
   const color = parseHex(b.primaryColor, DEFAULT_COLOR);
   const descZh = typeof b.descZh === 'string' ? b.descZh : '';
   const descEn = typeof b.descEn === 'string' ? b.descEn : '';
-  const desc = descZh.trim() ? descZh : descEn;
   const cat = index.categories.find((c) => c.id === b.category);
   const tags = Array.isArray(b.tags) ? b.tags.filter((t) => typeof t === 'string') : [];
   const sources = Array.isArray(b.sources) ? b.sources.filter((s) => typeof s === 'string') : [];
@@ -142,7 +141,8 @@ const brands = index.brands.map((b) => {
     slug: b.slug,
     name: b.name,
     category: b.category,
-    desc,
+    descZh,
+    descEn,
     color,
     phFrom: rgba(color, 0.38),
     phTo: rgba(color, 0.06),
@@ -170,6 +170,9 @@ const CLIENT_JS = `
   var DATA = JSON.parse(document.getElementById('gallery-data').textContent);
   var brands = DATA.brands;
   var cats = DATA.categories;
+  var I18N = DATA.i18n || { zh: {}, en: {} };
+  var SUBTITLE = { zh: DATA.subtitleZh || '', en: DATA.subtitleEn || DATA.subtitleZh || '' };
+  var generatedAt = DATA.generatedAt || '';
   var catMap = {};
   for (var i = 0; i < cats.length; i++) catMap[cats[i].id] = cats[i];
 
@@ -178,9 +181,18 @@ const CLIENT_JS = `
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
     });
   }
+  function t(key) {
+    var d = I18N[state.lang];
+    if (d && d[key] != null) return d[key];
+    return I18N.zh && I18N.zh[key] != null ? I18N.zh[key] : key;
+  }
   function catLabel(id) {
     var c = catMap[id];
-    return c ? c.labelZh + ' · ' + c.label : id;
+    if (!c) return id;
+    return state.lang === 'zh' ? c.labelZh : c.label;
+  }
+  function descOf(b) {
+    return state.lang === 'zh' ? (b.descZh || b.descEn || '') : (b.descEn || b.descZh || '');
   }
 
   /* ---------------- theme toggle ---------------- */
@@ -200,21 +212,28 @@ const CLIENT_JS = `
     if (saved === 'light' || saved === 'dark') applyTheme(saved);
   } catch (e) {}
 
+  /* ---------------- language toggle ---------------- */
+  var langBtn = document.getElementById('lang-toggle');
+  var langLabelEl = document.getElementById('lang-label');
+
   /* ---------------- state ---------------- */
-  var state = { q: '', cat: 'all' };
+  var state = { q: '', cat: 'all', lang: 'zh' };
   var hayBySlug = {};
 
   /* ---------------- category pills ---------------- */
   var pillsEl = document.getElementById('pills');
-  var pillDefs = [{ id: 'all', labelZh: '全部', label: 'All' }].concat(cats);
-  var pillsHtml = '';
-  for (var p = 0; p < pillDefs.length; p++) {
-    var pc = pillDefs[p];
-    var text = pc.id === 'all' ? '全部 / All' : esc(pc.labelZh) + ' · ' + esc(pc.label);
-    pillsHtml += '<button type="button" class="pill' + (pc.id === 'all' ? ' active' : '') +
-      '" data-cat="' + esc(pc.id) + '" aria-pressed="' + (pc.id === 'all' ? 'true' : 'false') + '">' + text + '</button>';
+  var pillDefs = [{ id: 'all' }].concat(cats);
+  function renderPills() {
+    var out = '';
+    for (var p = 0; p < pillDefs.length; p++) {
+      var pc = pillDefs[p];
+      var text = pc.id === 'all' ? esc(t('all')) : esc(catLabel(pc.id));
+      var on = state.cat === pc.id;
+      out += '<button type="button" class="pill' + (on ? ' active' : '') +
+        '" data-cat="' + esc(pc.id) + '" aria-pressed="' + (on ? 'true' : 'false') + '">' + text + '</button>';
+    }
+    pillsEl.innerHTML = out;
   }
-  pillsEl.innerHTML = pillsHtml;
   pillsEl.addEventListener('click', function (e) {
     var btn = e.target && e.target.closest ? e.target.closest('.pill') : null;
     if (!btn) return;
@@ -232,13 +251,13 @@ const CLIENT_JS = `
   function actionsHtml(b) {
     var html = '';
     html += '<a class="btn btn-primary" href="design-md/' + esc(b.slug) + '/DESIGN.md" download="' +
-      esc(b.slug) + '-DESIGN.md" title="下载 ' + esc(b.name) + ' 的 DESIGN.md">⬇ 下载 DESIGN.md</a>';
-    html += '<a class="btn" href="design-md/' + esc(b.slug) + '/DESIGN.md" target="_blank" rel="noopener">查看源码</a>';
+      esc(b.slug) + '-DESIGN.md" title="' + esc(t('downloadTitlePre') + b.name + t('downloadTitlePost')) + '">' + esc(t('download')) + '</a>';
+    html += '<a class="btn" href="design-md/' + esc(b.slug) + '/DESIGN.md" target="_blank" rel="noopener">' + esc(t('viewSource')) + '</a>';
     if (b.hasDark) {
-      html += '<a class="btn" href="design-md/' + esc(b.slug) + '/preview-dark.html" target="_blank" rel="noopener">深色预览</a>';
+      html += '<a class="btn" href="design-md/' + esc(b.slug) + '/preview-dark.html" target="_blank" rel="noopener">' + esc(t('darkPreview')) + '</a>';
     }
     if (b.url) {
-      html += '<a class="btn" href="' + esc(b.url) + '" target="_blank" rel="noopener">官网 ↗</a>';
+      html += '<a class="btn" href="' + esc(b.url) + '" target="_blank" rel="noopener">' + esc(t('website')) + '</a>';
     }
     return html;
   }
@@ -247,16 +266,17 @@ const CLIENT_JS = `
     var thumb;
     if (b.hasPreview) {
       thumb = '<div class="thumb" role="button" tabindex="0" data-slug="' + esc(b.slug) +
-        '" aria-label="打开预览 / Open preview: ' + esc(b.name) + '">' +
+        '" aria-label="' + esc(t('openPreview') + ': ' + b.name) + '">' +
         '<div class="thumb-ph" style="background:linear-gradient(135deg,' + b.phFrom + ',' + b.phTo + ')"></div>' +
-        '<div class="thumb-overlay"><span class="overlay-chip">打开预览 / Open preview</span></div>' +
+        '<div class="thumb-overlay"><span class="overlay-chip">' + esc(t('openPreview')) + '</span></div>' +
         '</div>';
     } else {
       thumb = '<div class="thumb thumb-poster" style="background:linear-gradient(135deg,' + b.posterFrom + ',' + b.posterTo + ')">' +
         '<span class="poster-letter" aria-hidden="true">' + esc(b.initial) + '</span>' +
-        '<span class="poster-note">预览即将上线 · Preview coming soon</span>' +
+        '<span class="poster-note">' + esc(t('posterNote')) + '</span>' +
         '</div>';
     }
+    var desc = descOf(b);
     var badges = '';
     for (var s = 0; s < b.sources.length; s++) badges += '<span class="badge">' + esc(b.sources[s]) + '</span>';
     return '<article class="card" data-cat="' + esc(b.category) + '" data-slug="' + esc(b.slug) + '">' +
@@ -265,20 +285,44 @@ const CLIENT_JS = `
       '<div class="card-head"><span class="swatch" style="background:' + b.color + '" aria-hidden="true"></span>' +
       '<h3 class="card-name">' + esc(b.name) + '</h3></div>' +
       '<p class="card-cat">' + esc(catLabel(b.category)) + '</p>' +
-      (b.desc ? '<p class="card-desc">' + esc(b.desc) + '</p>' : '') +
+      (desc ? '<p class="card-desc">' + esc(desc) + '</p>' : '') +
       (badges ? '<div class="badges">' + badges + '</div>' : '') +
       '<div class="actions">' + actionsHtml(b) + '</div>' +
       '</div></article>';
   }
 
   var grid = document.getElementById('grid');
-  var html = '';
-  for (var i2 = 0; i2 < brands.length; i2++) {
-    var b = brands[i2];
-    html += cardHtml(b);
-    hayBySlug[b.slug] = b.hay;
+  var cards;
+  var io = typeof IntersectionObserver === 'function'
+    ? new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          if (entries[i].isIntersecting) {
+            mountFrame(entries[i].target);
+            io.unobserve(entries[i].target);
+          }
+        }
+      }, { rootMargin: '500px 0px', threshold: 0 })
+    : null;
+
+  /* ---------------- preview iframe: scale-to-fit + center ---------------- */
+  function fitThumb(thumb) {
+    var f = thumb.querySelector('.thumb-frame');
+    if (!f) return;
+    var w = thumb.clientWidth;
+    var h = thumb.clientHeight;
+    if (!w || !h) { requestAnimationFrame(function () { fitThumb(thumb); }); return; }
+    var s = Math.max(w / 1440, h / 900);
+    f.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
   }
-  grid.innerHTML = html;
+  function fitAll() {
+    var mounted = grid.querySelectorAll('.thumb-frame');
+    for (var r = 0; r < mounted.length; r++) fitThumb(mounted[r].parentNode);
+  }
+  var fitTimer = null;
+  window.addEventListener('resize', function () {
+    if (fitTimer) clearTimeout(fitTimer);
+    fitTimer = setTimeout(fitAll, 120);
+  });
 
   /* ---------------- lazy iframe mounting ---------------- */
   function mountFrame(thumb) {
@@ -294,24 +338,28 @@ const CLIENT_JS = `
     f.src = 'design-md/' + slug + '/preview.html';
     f.addEventListener('load', function () { thumb.classList.add('loaded'); });
     thumb.insertBefore(f, thumb.firstChild);
+    fitThumb(thumb);
   }
-  var thumbs = grid.querySelectorAll('.thumb[data-slug]');
-  if (typeof IntersectionObserver === 'function') {
-    var io = new IntersectionObserver(function (entries) {
-      for (var i = 0; i < entries.length; i++) {
-        if (entries[i].isIntersecting) {
-          mountFrame(entries[i].target);
-          io.unobserve(entries[i].target);
-        }
-      }
-    }, { rootMargin: '500px 0px', threshold: 0 });
-    for (var t = 0; t < thumbs.length; t++) io.observe(thumbs[t]);
-  } else {
-    for (var t2 = 0; t2 < thumbs.length; t2++) mountFrame(thumbs[t2]);
+
+  function renderGrid() {
+    if (io) io.disconnect();
+    hayBySlug = {};
+    var out = '';
+    for (var g = 0; g < brands.length; g++) {
+      out += cardHtml(brands[g]);
+      hayBySlug[brands[g].slug] = brands[g].hay;
+    }
+    grid.innerHTML = out;
+    cards = grid.querySelectorAll('.card');
+    var thumbs = grid.querySelectorAll('.thumb[data-slug]');
+    if (io) {
+      for (var th = 0; th < thumbs.length; th++) io.observe(thumbs[th]);
+    } else {
+      for (var th2 = 0; th2 < thumbs.length; th2++) mountFrame(thumbs[th2]);
+    }
   }
 
   /* ---------------- search + category filtering ---------------- */
-  var cards = grid.querySelectorAll('.card');
   var countEl = document.getElementById('count');
   var emptyEl = document.getElementById('empty');
   function applyFilters() {
@@ -326,7 +374,7 @@ const CLIENT_JS = `
       card.hidden = !ok;
       if (ok) n++;
     }
-    countEl.textContent = '共 ' + n + ' / ' + brands.length + ' 个设计系统';
+    countEl.textContent = t('countPrefix') + n + t('countMid') + brands.length + t('countSuffix');
     emptyEl.hidden = n !== 0;
   }
   var searchEl = document.getElementById('search');
@@ -368,28 +416,153 @@ const CLIENT_JS = `
   document.getElementById('modal-close').addEventListener('click', function () { modal.close(); });
 
   grid.addEventListener('click', function (e) {
-    var t = e.target && e.target.closest ? e.target.closest('.thumb[data-slug]') : null;
-    if (t) openModal(t.getAttribute('data-slug'));
+    var el = e.target && e.target.closest ? e.target.closest('.thumb[data-slug]') : null;
+    if (el) openModal(el.getAttribute('data-slug'));
   });
   grid.addEventListener('keydown', function (e) {
     if (e.key !== 'Enter' && e.key !== ' ') return;
-    var t = e.target && e.target.closest ? e.target.closest('.thumb[data-slug]') : null;
-    if (t) { e.preventDefault(); openModal(t.getAttribute('data-slug')); }
+    var el = e.target && e.target.closest ? e.target.closest('.thumb[data-slug]') : null;
+    if (el) { e.preventDefault(); openModal(el.getAttribute('data-slug')); }
   });
 
-  applyFilters();
+  /* ---------------- language switching ---------------- */
+  var subEl = document.getElementById('hero-sub');
+  var footerEl = document.getElementById('site-footer');
+  var modalCloseBtn = document.getElementById('modal-close');
+  var chipEls = [
+    ['chip-brands', 'chipBrands'],
+    ['chip-categories', 'chipCategories'],
+    ['chip-previews', 'chipPreviews'],
+    ['chip-free', 'chipFree'],
+  ];
+
+  function renderFooter() {
+    footerEl.innerHTML = t('footerPrefix') + esc(generatedAt) + t('footerMid') + '<a href="CREDITS.md">Credits</a>';
+  }
+
+  function applyLang() {
+    var l = state.lang;
+    root.setAttribute('lang', l === 'zh' ? 'zh-CN' : 'en');
+    searchEl.placeholder = t('searchPlaceholder');
+    searchEl.setAttribute('aria-label', t('searchAria'));
+    pillsEl.setAttribute('aria-label', t('pillsAria'));
+    grid.setAttribute('aria-label', t('gridAria'));
+    emptyEl.textContent = t('emptyText');
+    if (subEl) subEl.textContent = SUBTITLE[l] || SUBTITLE.zh;
+    themeBtn.setAttribute('aria-label', t('themeAria'));
+    langBtn.setAttribute('aria-label', t('langAria'));
+    langLabelEl.textContent = t('langLabel');
+    if (modalCloseBtn) modalCloseBtn.setAttribute('aria-label', t('modalClose'));
+    mFrame.setAttribute('title', t('modalFrameTitle'));
+    for (var ci = 0; ci < chipEls.length; ci++) {
+      var chipEl = document.getElementById(chipEls[ci][0]);
+      if (chipEl) chipEl.textContent = t(chipEls[ci][1]);
+    }
+    renderFooter();
+    renderPills();
+    renderGrid();
+    applyFilters();
+  }
+
+  langBtn.addEventListener('click', function () {
+    state.lang = state.lang === 'zh' ? 'en' : 'zh';
+    try { localStorage.setItem('dg-lang', state.lang); } catch (e) {}
+    applyLang();
+    fitAll();
+  });
+
+  try {
+    var savedLang = localStorage.getItem('dg-lang');
+    if (savedLang === 'zh' || savedLang === 'en') state.lang = savedLang;
+  } catch (e) {}
+
+  applyLang();
 })();
 `;
 
+/* -------------------------------------------------------------- i18n strings */
+
+const I18N = {
+  zh: {
+    langLabel: '中',
+    searchPlaceholder: '搜索品牌…',
+    searchAria: '搜索品牌',
+    pillsAria: '分类筛选',
+    gridAria: '品牌列表',
+    all: '全部',
+    emptyText: '没有找到匹配的品牌',
+    openPreview: '打开预览',
+    posterNote: '预览即将上线',
+    download: '⬇ 下载 DESIGN.md',
+    downloadTitlePre: '下载 ',
+    downloadTitlePost: ' 的 DESIGN.md',
+    viewSource: '查看源码',
+    darkPreview: '深色预览',
+    website: '官网 ↗',
+    countPrefix: '共 ',
+    countMid: ' / ',
+    countSuffix: ' 个设计系统',
+    themeAria: '切换主题',
+    langAria: '切换语言',
+    modalClose: '关闭预览',
+    modalFrameTitle: '品牌预览',
+    footerPrefix: '数据更新于 ',
+    footerMid: ' · 由 <code>scripts/build.mjs</code> 从 <code>data/index.json</code> 生成 · ',
+    chipBrands: '个品牌',
+    chipCategories: '个分类',
+    chipPreviews: '个实时预览',
+    chipFree: 'MIT · 100% 免费',
+  },
+  en: {
+    langLabel: 'EN',
+    searchPlaceholder: 'Search brands…',
+    searchAria: 'Search brands',
+    pillsAria: 'Category filters',
+    gridAria: 'Brands',
+    all: 'All',
+    emptyText: 'No brands match your search',
+    openPreview: 'Open preview',
+    posterNote: 'Preview coming soon',
+    download: '⬇ Download DESIGN.md',
+    downloadTitlePre: 'Download the DESIGN.md for ',
+    downloadTitlePost: '',
+    viewSource: 'View source',
+    darkPreview: 'Dark preview',
+    website: 'Website ↗',
+    countPrefix: '',
+    countMid: ' / ',
+    countSuffix: ' design systems',
+    themeAria: 'Toggle theme',
+    langAria: 'Switch language',
+    modalClose: 'Close preview',
+    modalFrameTitle: 'Brand preview',
+    footerPrefix: 'Updated ',
+    footerMid: ' · Generated by <code>scripts/build.mjs</code> from <code>data/index.json</code> · ',
+    chipBrands: 'Brands',
+    chipCategories: 'Categories',
+    chipPreviews: 'Live Previews',
+    chipFree: 'MIT · 100% Free',
+  },
+};
+
+const subtitleEn = typeof index.subtitleEn === 'string' && index.subtitleEn.trim() ? index.subtitleEn : index.subtitle;
+
 /* ------------------------------------------------------------------- HTML */
 
-const payload = JSON.stringify({ categories: index.categories, brands }).replace(/</g, '\\u003c');
+const payload = JSON.stringify({
+  categories: index.categories,
+  brands,
+  i18n: I18N,
+  subtitleZh: index.subtitle,
+  subtitleEn,
+  generatedAt: String(index.generatedAt ?? ''),
+}).replace(/</g, '\\u003c');
 
 const chipsHtml = [
-  '<span class="chip"><b>' + total + '</b>&nbsp;Brands</span>',
-  '<span class="chip"><b>' + catCount + '</b>&nbsp;Categories</span>',
-  '<span class="chip"><b>' + previewCount + '</b>&nbsp;Live Previews</span>',
-  '<span class="chip">MIT · 100% Free</span>',
+  '<span class="chip"><b>' + total + '</b>&nbsp;<span id="chip-brands">' + I18N.zh.chipBrands + '</span></span>',
+  '<span class="chip"><b>' + catCount + '</b>&nbsp;<span id="chip-categories">' + I18N.zh.chipCategories + '</span></span>',
+  '<span class="chip"><b>' + previewCount + '</b>&nbsp;<span id="chip-previews">' + I18N.zh.chipPreviews + '</span></span>',
+  '<span class="chip" id="chip-free">' + I18N.zh.chipFree + '</span>',
 ].join('\n        ');
 
 const html = `<!doctype html>
@@ -462,6 +635,8 @@ const html = `<!doctype html>
   .topbar{display:flex;align-items:center;justify-content:space-between;max-width:1440px;margin:0 auto;padding:18px clamp(16px,4vw,32px)}
   .logo{font-family:var(--font-head);font-weight:700;font-size:1.05rem;letter-spacing:-.02em;color:var(--text);text-decoration:none}
   .logo em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .topbar-actions{display:flex;align-items:center;gap:8px}
+  .lang-btn{font-weight:700;font-size:.8rem;letter-spacing:.02em}
   .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;transition:border-color .2s,background .2s,transform .2s;flex:none}
   .icon-btn:hover{border-color:var(--border-strong);background:var(--surface-strong);transform:translateY(-1px)}
   .icon-btn svg{width:18px;height:18px}
@@ -515,7 +690,7 @@ const html = `<!doctype html>
 
   .thumb{position:relative;height:260px;overflow:hidden;border-bottom:1px solid var(--border);background:var(--bg2)}
   .thumb[data-slug]{cursor:pointer}
-  .thumb-frame{position:absolute;top:0;left:0;width:1440px;height:900px;transform:scale(.289);transform-origin:top left;border:0;pointer-events:none;z-index:1;background:#fff}
+  .thumb-frame{position:absolute;top:50%;left:50%;width:1440px;height:900px;transform:translate(-50%,-50%) scale(.289);transform-origin:center center;border:0;pointer-events:none;z-index:1;background:#fff}
   .thumb-ph{position:absolute;inset:0;z-index:2;transition:opacity .6s ease;pointer-events:none}
   .thumb-ph::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.10) 50%,transparent 70%);transform:translateX(-100%);animation:shimmer 2.8s ease-in-out infinite}
   @keyframes shimmer{to{transform:translateX(100%)}}
@@ -581,17 +756,20 @@ const html = `<!doctype html>
 </div>
 
 <header class="topbar">
-  <a class="logo" href="./">DESIGN<em>.md</em> Gallery</a>
+  <a class="logo" href="./">our design<em>.md</em></a>
+  <div class="topbar-actions">
+  <button id="lang-toggle" class="icon-btn lang-btn" type="button" aria-label="切换语言 / Switch language"><span id="lang-label">中</span></button>
   <button id="theme-toggle" class="icon-btn" type="button" aria-label="切换主题 / Toggle theme" aria-pressed="false">
     <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
     <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
   </button>
+  </div>
 </header>
 
 <main>
   <section class="hero">
     <h1>${escHtml(index.title)}</h1>
-    <p class="sub">${escHtml(index.subtitle)}</p>
+    <p class="sub" id="hero-sub">${escHtml(index.subtitle)}</p>
     <div class="chips">
         ${chipsHtml}
     </div>
@@ -612,7 +790,7 @@ const html = `<!doctype html>
   <div class="empty" id="empty" hidden>没有找到匹配的品牌 / No brands match your search</div>
 </main>
 
-<footer>
+<footer id="site-footer">
   数据更新于 ${escHtml(String(index.generatedAt ?? ''))} · 由 <code>scripts/build.mjs</code> 从 <code>data/index.json</code> 生成 · <a href="CREDITS.md">Credits</a>
 </footer>
 

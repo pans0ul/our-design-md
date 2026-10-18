@@ -1,6 +1,6 @@
 <div align="center">
 
-# Awesome Design MD
+# our design.md
 
 **112 个知名品牌的设计系统规范（`DESIGN.md`），供 AI 编码助手直接读取，生成风格一致的 UI。**
 
