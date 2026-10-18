@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starbucks &mdash; Design Token Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&amp;family=Lora:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f2f0eb;
+    --surface: #ffffff;
+    --text: #000000;
+    --muted: rgba(0,0,0,0.56);
+    --border: rgba(0,0,0,0.10);
+    --border-strong: rgba(0,0,0,0.22);
+    --primary: #006241;
+    --on-primary: #ffffff;
+    --primary-rgb: 0,98,65;
+    --r-btn: 50px;
+    --r-card: 12px;
+    --r-input: 12px;
+    --shadow-1: 8px 12px rgba(0,0,0,0.14);
+    --shadow-2: 0px .5px 0px rgba(0,0,0,0.14);
+    --font-display: 'SoDoSans', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    --font-text: 'Lander Tall', 'Lora', Georgia, 'Times New Roman', serif;
+    --font-mono: 'ui-monospace', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 var(--font-text); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+
+  .masthead { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 32px; border-bottom: 1px solid var(--border); }
+  .brand { font-family: var(--font-display); font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+  .masthead-right { display: flex; align-items: center; gap: 14px; }
+  .cat-chip { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px; }
+  .visit { font-size: 14px; font-weight: 600; text-decoration: none; color: var(--primary); }
+  .visit:hover { text-decoration: underline; }
+
+  .intro { max-width: 1080px; margin: 0 auto; padding: 64px 32px 48px; }
+  .kicker { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 14px; }
+  .intro h1 { margin: 0 0 16px; font-family: var(--font-display); font-size: clamp(26px, 3.9vw, 56px); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; }
+  .intro p { margin: 0; max-width: 640px; color: var(--muted); font-size: 17px; }
+
+  section { max-width: 1080px; margin: 0 auto; padding: 48px 32px; border-top: 1px solid var(--border); }
+  .sec-label { font-family: var(--font-mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 6px; }
+  .sec-title { margin: 0 0 28px; font-family: var(--font-display); font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
+  .sub-label { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin: 28px 0 12px; }
+
+  /* colors */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .swatch { border: 1px solid var(--border); border-radius: var(--r-card); overflow: hidden; background: var(--surface); }
+  .swatch-block { height: 64px; }
+  .swatch-info { padding: 9px 11px; }
+  .swatch-name { font-size: 13px; font-weight: 600; }
+  .swatch-hex { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* typography */
+  .type-row { padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .type-row:last-child { border-bottom: none; }
+  .type-sample { overflow-wrap: break-word; }
+  .type-meta { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-top: 6px; }
+
+  /* buttons */
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start; }
+  .btn-item { text-align: center; }
+  .btn { display: inline-block; font-family: var(--font-text); font-size: 15px; font-weight: 600; padding: 11px 24px; border-radius: var(--r-btn); text-decoration: none; cursor: pointer; transition: filter .15s, transform .15s; }
+  .btn-primary { background: var(--primary); color: var(--on-primary); border: none; }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border-strong); }
+  .btn-outline:hover { border-color: var(--text); }
+  .btn-ghost { background: transparent; color: var(--primary); border: none; text-decoration: underline; text-underline-offset: 3px; }
+  .btn-label { font-family: var(--font-mono); font-size: 11px; color: var(--muted); margin-top: 8px; }
+
+  /* cards + form */
+  .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); padding: 24px; box-shadow: var(--shadow-1); }
+  .card.elevated { box-shadow: var(--shadow-2); }
+  .badge { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 10px; border-radius: 999px; background: rgba(var(--primary-rgb), 0.14); color: var(--primary); margin-bottom: 12px; }
+  .card h3 { margin: 0 0 8px; font-family: var(--font-display); font-size: 20px; font-weight: 700; }
+  .card p { margin: 0; font-size: 14px; color: var(--muted); }
+  .card .card-link { display: inline-block; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--primary); text-decoration: none; }
+  .card .card-link:hover { text-decoration: underline; }
+  .form-card { max-width: 420px; }
+  .form-label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+  .form-input { width: 100%; background: var(--bg); color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--r-input); padding: 10px 12px; font: 14px/1.4 var(--font-text); outline: none; transition: border-color .15s, box-shadow .15s; }
+  .form-input::placeholder { color: var(--muted); }
+  .form-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.25); }
+  .form-hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+  /* radius / spacing / elevation */
+  .radius-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end; }
+  .radius-item { text-align: center; }
+  .radius-box { width: 64px; height: 56px; background: var(--border-strong); opacity: 0.85; margin-bottom: 6px; }
+  .radius-label { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+  .spacing-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+  .spacing-item { text-align: center; }
+  .spacing-block { height: 26px; background: var(--primary); opacity: 0.85; border-radius: 3px; margin-bottom: 6px; }
+  .spacing-value { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
+  .elevation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+  .elev-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-card); padding: 18px; }
+  .elev-name { font-weight: 600; font-size: 14px; }
+  .elev-desc { font-family: var(--font-mono); font-size: 10px; color: var(--muted); margin-top: 4px; overflow-wrap: anywhere; }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 32px 40px; text-align: center; font-size: 13px; color: var(--muted); }
+  footer a { color: var(--primary); }
+
+  /* ---- variant flourishes ---- */
+  .v-luxury .brand, .v-luxury .intro h1, .v-luxury .sec-title, .v-luxury .kicker, .v-luxury .sec-label { text-transform: uppercase; letter-spacing: 0.12em; }
+  .v-luxury .card { box-shadow: none; }
+  .v-luxury .btn { letter-spacing: 0.1em; text-transform: uppercase; font-size: 13px; }
+  .v-luxury .intro h1 { font-weight: 500; }
+
+  .v-bold .intro h1 { text-transform: uppercase; letter-spacing: -0.01em; font-weight: 800; }
+  .v-bold .sec-title { text-transform: uppercase; }
+  .v-bold .kicker { color: var(--primary); }
+  .v-bold .card { border-width: 1px; box-shadow: none; }
+  .v-bold .card.elevated { box-shadow: var(--shadow-2); }
+
+  .v-retro .masthead, .v-retro section, .v-retro footer { border-bottom: none; }
+  .v-retro .swatch, .v-retro .card, .v-retro .elev-card { border: 2px solid var(--text); box-shadow: 4px 4px 0 var(--text); border-radius: var(--r-card); }
+  .v-retro .card.elevated { box-shadow: 6px 6px 0 var(--primary); }
+  .v-retro .btn { border: 2px solid var(--text); box-shadow: 3px 3px 0 var(--text); }
+  .v-retro .btn-primary { box-shadow: 3px 3px 0 var(--text); }
+  .v-retro .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--text); }
+  .v-retro .form-input { border: 2px solid var(--text); border-radius: var(--r-input); }
+  .v-retro .kicker { background: var(--text); color: var(--bg); display: inline-block; padding: 3px 10px; }
+
+  @media (max-width: 720px) {
+    .masthead { padding: 14px 20px; flex-wrap: wrap; }
+    .intro { padding: 44px 20px 32px; }
+    section { padding: 36px 20px; }
+    .intro h1 { font-size: clamp(30px, 9vw, 44px); }
+    .swatches { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    .demo-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body class="v-clean">
+
+  <header class="masthead">
+    <div class="brand">Starbucks</div>
+    <div class="masthead-right">
+      <span class="cat-chip">E-commerce &amp; Retail</span>
+    </div>
+  </header>
+
+  <div class="intro">
+    <div class="kicker">Design token catalog</div>
+    <h1>Starbucks</h1>
+    <p>Coffee retail flagship. Four-tier earth-green system, warm cream canvas, proprietary SoDoSans typography</p>
+  </div>
+
+  <section id="colors">
+    <div class="sec-label">01 / Colors</div>
+    <h2 class="sec-title">Color Palette</h2>
+    <div class="swatches">
+    <div class="swatch"><div class="swatch-block" style="background:#f2f0eb;border-bottom:1px solid var(--border);"></div><div class="swatch-info"><div class="swatch-name">warm, confident retail flagship</div><div class="swatch-hex">#f2f0eb</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#edebe9;border-bottom:1px solid var(--border);"></div><div class="swatch-info"><div class="swatch-name">warm, confident retail flagship</div><div class="swatch-hex">#edebe9</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#006241;"></div><div class="swatch-info"><div class="swatch-name">Starbucks Green</div><div class="swatch-hex">#006241</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#cba258;"></div><div class="swatch-info"><div class="swatch-name">Starbucks Green</div><div class="swatch-hex">#cba258</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#00754A;"></div><div class="swatch-info"><div class="swatch-name">Color</div><div class="swatch-hex">#00754A</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#1E3932;"></div><div class="swatch-info"><div class="swatch-name">Color-block page rhythm:</div><div class="swatch-hex">#1E3932</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#2b5148;"></div><div class="swatch-info"><div class="swatch-name">Green Uplift</div><div class="swatch-hex">#2b5148</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#d4e9e2;"></div><div class="swatch-info"><div class="swatch-name">Green Light</div><div class="swatch-hex">#d4e9e2</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#dfc49d;"></div><div class="swatch-info"><div class="swatch-name">Gold Light</div><div class="swatch-hex">#dfc49d</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#faf6ee;border-bottom:1px solid var(--border);"></div><div class="swatch-info"><div class="swatch-name">Gold Lightest</div><div class="swatch-hex">#faf6ee</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#ffffff;border-bottom:1px solid var(--border);"></div><div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#ffffff</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#f9f9f9;border-bottom:1px solid var(--border);"></div><div class="swatch-info"><div class="swatch-name">Neutral Cool</div><div class="swatch-hex">#f9f9f9</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#000000;"></div><div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-hex">#000000</div></div></div>
+    <div class="swatch"><div class="swatch-block" style="background:#33433d;"></div><div class="swatch-info"><div class="swatch-name">Rewards Green</div><div class="swatch-hex">#33433d</div></div></div>
+    </div>
+  </section>
+
+  <section id="typography">
+    <div class="sec-label">02 / Typography</div>
+    <h2 class="sec-title">Type Scale</h2>
+    <div class="type-row">
+    <div class="type-sample" style="font-family:'SoDoSans', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;font-size:clamp(26px, 5.6vw, 80px);font-weight:400;line-height:1.2;letter-spacing:-0.16px;">Design Language</div>
+    <div class="type-meta">Display (text-10) &mdash; 80px / 400 / 1.2 / -0.16px</div>
+  </div>
+    <div class="type-row">
+    <div class="type-sample" style="font-family:'SoDoSans', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;font-size:clamp(26px, 4vw, 58px);font-weight:400;line-height:1.2;letter-spacing:-0.16px;">Design Language</div>
+    <div class="type-meta">Jumbo (text-9) &mdash; 58px / 400 / 1.2 / -0.16px</div>
+  </div>
+    <div class="type-row">
+    <div class="type-sample" style="font-family:'SoDoSans', 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;font-size:clamp(26px, 3.1vw, 45px);font-weight:400;line-height:1.2;letter-spacing:-0.16px;">Design Language</div>
+    <div class="type-meta">Hero Large (text-8) &mdash; 45px / 400 / 1.2 / -0.16px</div>
+  </div>
+    <div class="type-row">
+    <div class="type-sample" style="font-family:'Lander Tall', 'Lora', Georgia, 'Times New Roman', serif;font-size:24px;font-weight:600;line-height:1.3;letter-spacing:-0.16px;">The quick brown fox jumps over 0123456789</div>
+    <div class="type-meta">H1 &mdash; 24px / 600 / 1.3 / -0.16px</div>
+  </div>
+    <div class="type-row">
+    <div class="type-sample" style="font-family:'Lander Tall', 'Lora', Georgia, 'Times New Roman', serif;font-size:24px;font-weight:400;line-height:1.3;letter-spacing:-0.16px;">The quick brown fox jumps over 0123456789</div>
+    <div class="type-meta">H2 &mdash; 24px / 400 / 1.3 / -0.16px</div>
+  </div>
+  </section>
+
+  <section id="buttons">
+    <div class="sec-label">03 / Buttons</div>
+    <h2 class="sec-title">Button Variants</h2>
+    <div class="btn-row">
+      <div class="btn-item"><a class="btn btn-primary" href="#">Primary action</a><div class="btn-label">Primary &middot; radius 50px</div></div>
+      <div class="btn-item"><a class="btn btn-outline" href="#">Secondary</a><div class="btn-label">Outline</div></div>
+      <div class="btn-item"><a class="btn btn-ghost" href="#">Learn more</a><div class="btn-label">Ghost</div></div>
+    </div>
+  </section>
+
+  <section id="components">
+    <div class="sec-label">04 / Cards &amp; Forms</div>
+    <h2 class="sec-title">Components</h2>
+    <div class="demo-grid">
+      <div class="card">
+        <span class="badge">Featured</span>
+        <h3>Card example</h3>
+        <p>Surface, border, radius and shadow tokens composed into a standard content card.</p>
+        <a class="card-link" href="#">View details &rarr;</a>
+      </div>
+      <div class="card elevated">
+        <span class="badge">Elevated</span>
+        <h3>Raised card</h3>
+        <p>The same card lifted with the brand's stronger elevation token.</p>
+        <a class="card-link" href="#">View details &rarr;</a>
+      </div>
+      <div class="card form-card">
+        <label class="form-label" for="demo-input">Email address</label>
+        <input class="form-input" id="demo-input" type="text" placeholder="you@example.com">
+        <div class="form-hint">Input &middot; radius 12px &middot; focus ring uses primary</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="shape">
+    <div class="sec-label">05 / Shape &amp; Depth</div>
+    <h2 class="sec-title">Radius &amp; Elevation</h2>
+    <div class="radius-row">
+      <div class="radius-item"><div class="radius-box" style="border-radius:12px"></div><div class="radius-label">12px</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:50px"></div><div class="radius-label">50px</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:50%"></div><div class="radius-label">50%</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:3.3333%"></div><div class="radius-label">3.3333%</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius:5.298%"></div><div class="radius-label">5.298%</div></div>
+    </div>
+    
+    <div class="sub-label">Elevation</div><div class="elevation-grid">
+        <div class="elev-card" style="box-shadow:none"><div class="elev-name">Flat</div><div class="elev-desc">no shadow</div></div>
+        <div class="elev-card" style="box-shadow:8px 12px rgba(0,0,0,0.14)"><div class="elev-name">Raised</div><div class="elev-desc">8px 12px rgba(0,0,0,0.14)</div></div>
+        <div class="elev-card" style="box-shadow:0px .5px 0px rgba(0,0,0,0.14)"><div class="elev-name">Floating</div><div class="elev-desc">0px .5px 0px rgba(0,0,0,0.14)</div></div>
+      </div>
+  </section>
+
+  <footer>
+    Generated from DESIGN.md &mdash; awesome-design-md &middot; Starbucks
+  </footer>
+
+</body>
+</html>

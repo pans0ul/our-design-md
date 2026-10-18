@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Temp
+.tmp/
+*.tmp
+
+# Local-only tooling artifacts (absolute-path symlink + agent state)
+.codegraph
+.omo/

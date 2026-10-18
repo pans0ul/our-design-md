@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>网易 — Design System</title>
+  <style>
+    :root {
+      /* Replace values only with evidence recorded in DESIGN.md. */
+      --primary: #d60000;
+      --action: #ff3333;
+      --ink: #404040;
+      --body-text: #404040;
+      --muted: #888888;
+      --line: #eeeeee;
+      --canvas: #ffffff;
+      --surface: #ffffff;
+      --soft: #f1f2f3;
+      --control-radius: 5px;
+      --card-radius: 0px;
+      --card-shadow: none;
+      --font-body: -apple-system, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei";
+      --font-cjk: -apple-system, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei";
+      --font-nav: "宋体", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--body-text); font: 14px/1.5 var(--font-body); -webkit-font-smoothing: antialiased; }
+    .sheet { width: 1440px; min-height: 1080px; margin: 0 auto; padding: 44px 72px 48px; }
+    .masthead { display: flex; justify-content: space-between; align-items: center; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+    .brand { font-size: 22px; line-height: 1.3; font-weight: 650; letter-spacing: -.025em; }
+    .context { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
+    .context span { padding: 5px 8px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+    .intro { display: flex; justify-content: space-between; align-items: end; gap: 48px; padding: 30px 0 26px; }
+    .intro-label, .section-kicker { margin: 0 0 8px; color: var(--muted); font-size: 10px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0; font: 600 18px/30px var(--font-body); }
+    .summary { max-width: 620px; margin: 9px 0 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .source-language { min-width: 250px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--card-radius); background: var(--surface); }
+    .source-language strong { display: block; margin-bottom: 5px; font-size: 12px; }
+    .source-language span { color: var(--muted); font-size: 11px; }
+    .section { margin-top: 22px; }
+    .section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; margin-bottom: 12px; }
+    h2 { margin: 0; font-size: 16px; line-height: 1.4; font-weight: 650; }
+    .section-note { color: var(--muted); font-size: 11px; }
+    .swatches { display: grid; grid-template-columns: repeat(8, 1fr); gap: 10px; }
+    .swatch { overflow: hidden; border: 1px solid var(--line); border-radius: var(--control-radius); background: var(--surface); }
+    .color { height: 66px; background: var(--sample); }
+    .swatch-copy { min-height: 46px; padding: 8px 9px; }
+    .swatch-name, .swatch-value { display: block; font-size: 10px; line-height: 1.4; }
+    .swatch-value { margin-top: 3px; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .foundations { display: grid; grid-template-columns: 1.05fr .95fr; gap: 14px; }
+    .panel { border: 1px solid var(--line); border-radius: var(--card-radius); background: var(--surface); }
+    .panel-head { padding: 14px 16px 11px; border-bottom: 1px solid var(--line); }
+    .panel-body { padding: 14px 16px; }
+    .type-row { display: grid; grid-template-columns: 120px 1fr 164px; align-items: baseline; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+    .type-row:last-child { border-bottom: 0; }
+    .type-role, .type-value { color: var(--muted); font-size: 10px; }
+    .type-value { text-align: right; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .type-sample { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    .cjk-stack { padding: 10px 12px; border-radius: var(--control-radius); background: var(--soft); color: var(--muted); font: 10px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
+    .cjk-line { margin: 15px 0 8px; color: var(--ink); font: 21px/1.55 var(--font-cjk); }
+    .cjk-note { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+    .specimens { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .component { min-height: 112px; padding: 16px; border: 1px solid var(--line); border-radius: var(--card-radius); background: var(--surface); }
+    .component-label { display: block; margin-bottom: 14px; color: var(--muted); font-size: 10px; }
+    .button-row { display: flex; align-items: center; gap: 8px; }
+    .button { min-height: 36px; padding: 0 14px; border: 1px solid var(--line); border-radius: var(--control-radius); background: var(--surface); color: var(--ink); font: 500 12px/1 var(--font-body); }
+    .button.primary { border-color: var(--primary); background: var(--primary); color: #fff; }
+    .button.alt { border-color: var(--action); background: var(--action); color: #fff; }
+    .field { height: 36px; display: flex; align-items: center; padding: 0 11px; border: 1px solid var(--line); border-radius: var(--control-radius); color: var(--muted); font-size: 12px; }
+    .tag { display: inline-flex; align-items: center; min-height: 23px; padding: 0 8px; border-radius: 4px; background: var(--soft); color: var(--primary); font-size: 10px; }
+    .surface-sample { min-height: 40px; display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--card-radius); background: var(--surface); box-shadow: var(--card-shadow); font-size: 11px; }
+    .surface-sample small { color: var(--muted); font-size: 10px; }
+    .measurements { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 12px; }
+    .measure { padding: 13px 15px; border: 1px solid var(--line); border-radius: var(--card-radius); background: var(--surface); }
+    .measure-title { display: block; margin-bottom: 9px; color: var(--muted); font-size: 10px; }
+    .scale { display: flex; align-items: end; gap: 7px; height: 24px; }
+    .scale i { display: block; width: var(--w); height: 5px; border-radius: 999px; background: var(--primary); opacity: .75; }
+    .radius-row { display: flex; align-items: center; gap: 7px; }
+    .radius-chip { width: 32px; height: 23px; border: 1px solid var(--line); background: var(--soft); border-radius: var(--r); }
+    .shadow-chip { width: 52px; height: 25px; border: 1px solid var(--line); border-radius: var(--control-radius); background: var(--surface); box-shadow: var(--card-shadow); }
+    .measure-values { color: var(--ink); font: 10px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .footer { display: flex; justify-content: space-between; gap: 20px; margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+    .footer a { color: inherit; text-decoration: none; }
+    @media (max-width: 980px) {
+      .sheet { width: 100%; padding: 28px 24px; }
+      .intro { align-items: stretch; flex-direction: column; gap: 16px; }
+      .source-language { min-width: 0; }
+      .swatches { grid-template-columns: repeat(4, 1fr); }
+      .foundations { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; gap: 6px; }
+    }
+    @media (max-width: 600px) {
+      .sheet { padding: 20px 16px; }
+      .masthead { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .context { flex-wrap: wrap; }
+      .swatches { grid-template-columns: repeat(2, 1fr); }
+      .type-row { grid-template-columns: 78px 1fr; gap: 5px 8px; }
+      .type-sample { white-space: normal; }
+      .type-value { grid-column: 2; text-align: left; }
+      .specimens, .measurements { grid-template-columns: 1fr; }
+      .cjk-line { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet">
+    <header class="masthead"><div class="brand">网易</div><div class="context"><span>内容与媒体</span><span>简体中文</span><span>HTML lang: 未记录</span></div></header>
+    <section class="intro"><div><p class="intro-label">Design language / 中文界面</p><h1>视觉系统样本</h1><p class="summary">以高密度文字层级、轻分隔线和多档红色强调构成内容界面的视觉层次。</p></div><aside class="source-language"><strong>中文排版</strong><span>页面正文使用系统与中文字体回退栈；顶栏声明宋体。来源捕获未记录 HTML lang。</span></aside></section>
+    <section class="section"><div class="section-head"><h2>颜色角色</h2><span class="section-note">只展示 DESIGN.md 中有证据的色值</span></div><div class="swatches"><div class="swatch"><div class="color" style="--sample:#d60000"></div><div class="swatch-copy"><span class="swatch-name">品牌红</span><code class="swatch-value">#d60000</code></div></div><div class="swatch"><div class="color" style="--sample:#ff3333"></div><div class="swatch-copy"><span class="swatch-name">搜索动作</span><code class="swatch-value">#ff3333</code></div></div><div class="swatch"><div class="color" style="--sample:#e10000"></div><div class="swatch-copy"><span class="swatch-name">强调红</span><code class="swatch-value">#e10000</code></div></div><div class="swatch"><div class="color" style="--sample:#333333"></div><div class="swatch-copy"><span class="swatch-name">顶栏</span><code class="swatch-value">#333333</code></div></div><div class="swatch"><div class="color" style="--sample:#404040"></div><div class="swatch-copy"><span class="swatch-name">主文字</span><code class="swatch-value">#404040</code></div></div><div class="swatch"><div class="color" style="--sample:#585858"></div><div class="swatch-copy"><span class="swatch-name">次级文字</span><code class="swatch-value">#585858</code></div></div><div class="swatch"><div class="color" style="--sample:#888888"></div><div class="swatch-copy"><span class="swatch-name">弱化文字</span><code class="swatch-value">#888888</code></div></div><div class="swatch"><div class="color" style="--sample:#ffffff"></div><div class="swatch-copy"><span class="swatch-name">画布</span><code class="swatch-value">#ffffff</code></div></div></div></section>
+    <section class="section foundations">
+      <article class="panel"><div class="panel-head"><h2>文字层级</h2></div><div class="panel-body"><div class="type-row"><span class="type-role">焦点标题</span><strong class="type-sample" style="font:600 18px/30px var(--font-body)">重点标题样本</strong><span class="type-value">18px / 600 / 30px</span></div><div class="type-row"><span class="type-role">模块标题</span><strong class="type-sample" style="font:700 18px/26px var(--font-body)">内容模块标题</strong><span class="type-value">18px / 700 / 26px</span></div><div class="type-row"><span class="type-role">正文</span><strong class="type-sample" style="font:400 14px/30px var(--font-body)">正文样本：中文与数字 2026</strong><span class="type-value">14px / 400 / 30px</span></div><div class="type-row"><span class="type-role">密集文字</span><strong class="type-sample" style="font:400 12px/18px var(--font-body)">列表与导航样本</strong><span class="type-value">12px / 400 / 18px</span></div><div class="type-row"><span class="type-role">顶栏导航</span><strong class="type-sample" style="font:400 12px/44px var(--font-nav)">一级导航 / 次级入口</strong><span class="type-value">12px / 400 / 44px</span></div></div></article>
+      <article class="panel"><div class="panel-head"><h2>简体中文与中西文混排</h2></div><div class="panel-body"><div class="cjk-stack">中文字体： -apple-system, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei"<br>西文 / 正文： -apple-system, "PingFang SC", "Hiragino Sans GB", STHeiti, "Microsoft Yahei"</div><p class="cjk-line">中文设计 System UI · 2026 年 9 月（¥ 128.00）</p><p class="cjk-note">字形样本用于查看汉字、拉丁字母、数字与全角标点在指定字体栈中的呈现；不表示来源网站采用了这句文案或额外混排规则。</p></div></article>
+    </section>
+    <section class="section"><div class="section-head"><h2>组件样本</h2><span class="section-note">常见 UI 原语，仅呈现有证据支持的样式</span></div><div class="specimens"><div class="component"><span class="component-label">大尺寸按钮 · 70×48px</span><div class="button-row"><button class="button primary" style="height:48px;border-radius:0;padding:0 22px">主要操作</button></div></div><div class="component"><span class="component-label">搜索 · 36px 高</span><div class="button-row"><div class="field" style="border-radius:0">搜索关键词</div><button class="button alt" style="border-radius:0 5px 5px 0">搜索</button></div></div><div class="component"><span class="component-label">文字卡片 / 轻分隔</span><div class="surface-sample"><span>标题与辅助信息样本</span><small>无阴影</small></div></div></div></section>
+    <section class="section"><div class="section-head"><h2>几何与节奏</h2><span class="section-note">间距、圆角和层级</span></div><div class="measurements"><div class="measure"><span class="measure-title">Spacing</span><div class="scale"><i style="--w:6px"></i><i style="--w:8px"></i><i style="--w:12px"></i><i style="--w:30px"></i></div><div class="measure-values">6 · 8 · 12 · 30 px</div></div><div class="measure"><span class="measure-title">Radius</span><div class="radius-row"><i class="radius-chip" style="--r:0px"></i><i class="radius-chip" style="--r:4px"></i><i class="radius-chip" style="--r:5px"></i></div><div class="measure-values">0px · 4px · 5px</div></div><div class="measure"><span class="measure-title">Elevation</span><div class="shadow-chip"></div><div class="measure-values">代表性样本：none</div></div></div></section>
+    <footer class="footer"><span>来源：<a href="https://www.163.com/">https://www.163.com/</a> · 2026-09-28 · 公开访问 · 未登录</span><span>桌面 1280×720 · 移动 390×844 · document width 1220px，存在横向溢出</span></footer>
+  </main>
+</body>
+</html>

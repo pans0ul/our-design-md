@@ -1,0 +1,2032 @@
+{
+  "title": "Awesome DESIGN.md",
+  "subtitle": "精选 DESIGN.md 设计系统合集 · 一键预览与下载",
+  "generatedAt": "2026-10-18",
+  "stats": {
+    "total": 112,
+    "withPreview": 82,
+    "withDark": 54
+  },
+  "categories": [
+    {
+      "id": "ai",
+      "label": "AI & LLM Platforms",
+      "labelZh": "AI 与大模型"
+    },
+    {
+      "id": "devtools",
+      "label": "Developer Tools & IDEs",
+      "labelZh": "开发者工具"
+    },
+    {
+      "id": "backend",
+      "label": "Backend, Database & DevOps",
+      "labelZh": "后端与运维"
+    },
+    {
+      "id": "productivity",
+      "label": "Productivity & SaaS",
+      "labelZh": "效率与 SaaS"
+    },
+    {
+      "id": "design",
+      "label": "Design & Creative Tools",
+      "labelZh": "设计与创意"
+    },
+    {
+      "id": "fintech",
+      "label": "Fintech & Crypto",
+      "labelZh": "金融与加密"
+    },
+    {
+      "id": "ecommerce",
+      "label": "E-commerce & Retail",
+      "labelZh": "电商与零售"
+    },
+    {
+      "id": "media",
+      "label": "Media & Consumer Tech",
+      "labelZh": "媒体与消费科技"
+    },
+    {
+      "id": "automotive",
+      "label": "Automotive",
+      "labelZh": "汽车"
+    },
+    {
+      "id": "social",
+      "label": "Social & Platform",
+      "labelZh": "社交与平台"
+    },
+    {
+      "id": "travel",
+      "label": "Travel & Mobility",
+      "labelZh": "出行与旅行"
+    },
+    {
+      "id": "retro",
+      "label": "Retro Web",
+      "labelZh": "复古网页"
+    }
+  ],
+  "brands": [
+    {
+      "slug": "aliyun-bailian",
+      "name": "阿里云百炼",
+      "category": "ai",
+      "descEn": null,
+      "descZh": "从公开渲染的阿里云百炼模型广场页面提取的界面设计证据与规范摘要。",
+      "primaryColor": "#2564f8",
+      "tags": [
+        "#2564f8",
+        "radius:6px",
+        "14px base"
+      ],
+      "font": "PingFang SC (标题) / system sans-serif (正文)",
+      "url": "https://bailian.console.aliyun.com/cn-beijing/model/market",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "claude",
+      "name": "Claude",
+      "category": "ai",
+      "descEn": "Anthropic's AI assistant. Warm terracotta accent, clean editorial layout",
+      "descZh": "Anthropic旗下AI助手，极简白底+优雅紫",
+      "primaryColor": "#cc785c",
+      "tags": [],
+      "font": null,
+      "url": "https://claude.ai/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "cohere",
+      "name": "Cohere",
+      "category": "ai",
+      "descEn": "Enterprise AI platform. Vibrant gradients, data-rich dashboard aesthetic",
+      "descZh": "AI初创公司，现代科技感深蓝+白色",
+      "primaryColor": "#17171c",
+      "tags": [],
+      "font": null,
+      "url": "https://cohere.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "deepseek",
+      "name": "DeepSeek",
+      "category": "ai",
+      "descEn": null,
+      "descZh": "从公开渲染的 DeepSeek 首页（https://www.deepseek.com/）提取的界面设计证据与规范摘要。",
+      "primaryColor": "#4d6bfe",
+      "tags": [
+        "#4176e6",
+        "radius:24px/100px",
+        "16px base"
+      ],
+      "font": "DM Sans / system-ui / Noto Sans SC / PingFang SC",
+      "url": "https://www.deepseek.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "elevenlabs",
+      "name": "ElevenLabs",
+      "category": "ai",
+      "descEn": "AI voice platform. Dark cinematic UI, audio-waveform aesthetics",
+      "descZh": "AI语音合成，渐变深色+科技感",
+      "primaryColor": "#292524",
+      "tags": [],
+      "font": null,
+      "url": "https://elevenlabs.io/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "jobright",
+      "name": "Jobright",
+      "category": "ai",
+      "descEn": "AI job-hunting platform. Spring-mint green, black pill buttons, condensed Titillium headlines",
+      "descZh": null,
+      "primaryColor": "#00f0a0",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "minimax",
+      "name": "Minimax",
+      "category": "ai",
+      "descEn": "AI model provider. Bold dark interface with neon accents",
+      "descZh": "AI大模型公司，现代科技风格",
+      "primaryColor": "#0a0a0a",
+      "tags": [],
+      "font": null,
+      "url": "https://minimax.io/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "mistral.ai",
+      "name": "Mistral AI",
+      "category": "ai",
+      "descEn": "Open-weight LLM provider. French-engineered minimalism, purple-toned",
+      "descZh": "法国AI实验室，极简法式优雅",
+      "primaryColor": "#fa520f",
+      "tags": [],
+      "font": null,
+      "url": "https://mistral.ai/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "ollama",
+      "name": "Ollama",
+      "category": "ai",
+      "descEn": "Run LLMs locally. Terminal-first, monochrome simplicity",
+      "descZh": "本地AI模型运行，简约开发者工具",
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": "https://ollama.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "opencode.ai",
+      "name": "OpenCode AI",
+      "category": "ai",
+      "descEn": "AI coding platform. Developer-centric dark theme",
+      "descZh": "AI代码平台，现代开发者UI",
+      "primaryColor": "#201d1d",
+      "tags": [],
+      "font": null,
+      "url": "https://opencode.ai/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "replicate",
+      "name": "Replicate",
+      "category": "ai",
+      "descEn": "Run ML models via API. Clean white canvas, code-forward",
+      "descZh": "AI模型云托管，简洁开发者平台",
+      "primaryColor": "#ea2804",
+      "tags": [],
+      "font": null,
+      "url": "https://replicate.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "runwayml",
+      "name": "Runway",
+      "category": "ai",
+      "descEn": "AI creative-tools platform with an editorial film-festival aesthetic — cinematic dark heroes, paper-white reading bands, single proprietary sans, and pure black pill CTAs.",
+      "descZh": "AI视频生成，前沿创意技术",
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": "https://runwayml.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "sensetime",
+      "name": "商汤科技 SenseTime",
+      "category": "ai",
+      "descEn": null,
+      "descZh": "从公开渲染的商汤科技中文官网首页提取的界面设计证据与规范摘要。",
+      "primaryColor": "#f02e27",
+      "tags": [
+        "#f02e27",
+        "radius:20px/8px",
+        "glass"
+      ],
+      "font": "Open Sans / PingFang SC / Source Han Sans SC / 思源黑体 / Microsoft YaHei",
+      "url": "https://www.sensetime.com/cn/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "together.ai",
+      "name": "Together AI",
+      "category": "ai",
+      "descEn": "Open-source AI infrastructure. Technical, blueprint-style design",
+      "descZh": "AI云平台，渐变深色开发者UI",
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": "https://together.ai/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "voltagent",
+      "name": "VoltAgent",
+      "category": "ai",
+      "descEn": "AI agent framework. Void-black canvas, emerald accent, terminal-native",
+      "descZh": "VoltAgent自家官网，极简技术感",
+      "primaryColor": "#00d992",
+      "tags": [],
+      "font": null,
+      "url": "https://voltagent.dev/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "x.ai",
+      "name": "xAI",
+      "category": "ai",
+      "descEn": "Elon Musk's AI lab. Stark monochrome, futuristic minimalism",
+      "descZh": "AI日程助手，简洁任务管理",
+      "primaryColor": "#ffffff",
+      "tags": [],
+      "font": null,
+      "url": "https://x.ai/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "cursor",
+      "name": "Cursor",
+      "category": "devtools",
+      "descEn": "AI-first code editor. Sleek dark interface, gradient accents",
+      "descZh": "AI代码编辑器官网，深色沉浸式体验",
+      "primaryColor": "#f54e00",
+      "tags": [],
+      "font": null,
+      "url": "https://cursor.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "expo",
+      "name": "Expo",
+      "category": "devtools",
+      "descEn": "React Native platform. Dark theme, tight letter-spacing, code-centric",
+      "descZh": "React Native开发平台，简洁技术文档风格",
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": "https://expo.dev/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "lovable",
+      "name": "Lovable",
+      "category": "devtools",
+      "descEn": "AI full-stack builder. Playful gradients, friendly dev aesthetic",
+      "descZh": "AI无代码建站，温暖现代感",
+      "primaryColor": "#f7f4ed",
+      "tags": [],
+      "font": null,
+      "url": "https://lovable.dev/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "raycast",
+      "name": "Raycast",
+      "category": "devtools",
+      "descEn": "Productivity launcher. Sleek dark chrome, vibrant gradient accents",
+      "descZh": "macOS效率工具，简约深色工具感",
+      "primaryColor": "#ffffff",
+      "tags": [],
+      "font": null,
+      "url": "https://raycast.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "superhuman",
+      "name": "Superhuman",
+      "category": "devtools",
+      "descEn": "Fast email client. Premium dark UI, keyboard-first, purple glow",
+      "descZh": "极速邮件客户端，奢华高端定位",
+      "primaryColor": "#1b1938",
+      "tags": [],
+      "font": null,
+      "url": "https://superhuman.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "vercel",
+      "name": "Vercel",
+      "category": "devtools",
+      "descEn": "Frontend deployment platform. Black and white precision, Geist font",
+      "descZh": "前端部署平台，极简深色开发者美学",
+      "primaryColor": "#171717",
+      "tags": [],
+      "font": null,
+      "url": "https://vercel.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "warp",
+      "name": "Warp",
+      "category": "devtools",
+      "descEn": "Modern terminal. Dark IDE-like interface, block-based command UI",
+      "descZh": "AI终端应用，现代终端美学",
+      "primaryColor": "#f7f5f0",
+      "tags": [],
+      "font": null,
+      "url": "https://warp.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "360",
+      "name": "360 集团",
+      "category": "backend",
+      "descEn": null,
+      "descZh": "从公开渲染的 360 集团中文官网首页（360.com）提取的界面设计证据与规范摘要；仅采集未登录的公开页面。",
+      "primaryColor": "#1BB954",
+      "tags": [
+        "#1BB954 招牌绿",
+        "方正按钮 r=0",
+        "白底 · 无阴影"
+      ],
+      "font": "Arial, Helvetica, sans-serif · Microsoft YaHei · -apple-system",
+      "url": "https://360.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "clickhouse",
+      "name": "ClickHouse",
+      "category": "backend",
+      "descEn": "Fast analytics database. Yellow-accented, technical documentation style",
+      "descZh": "数据库产品，技术感深色界面",
+      "primaryColor": "#faff69",
+      "tags": [],
+      "font": null,
+      "url": "https://clickhouse.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "composio",
+      "name": "Composio",
+      "category": "backend",
+      "descEn": "Tool integration platform. Modern dark with colorful integration icons",
+      "descZh": "AI Agent工具平台，现代深色UI",
+      "primaryColor": "#0007cd",
+      "tags": [],
+      "font": null,
+      "url": "https://composio.dev/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "hashicorp",
+      "name": "HashiCorp",
+      "category": "backend",
+      "descEn": "Infrastructure automation. Enterprise-clean, black and white",
+      "descZh": "DevOps工具厂商，蓝色技术文档风格",
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": "https://hashicorp.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "jdcloud",
+      "name": "京东云 JD Cloud",
+      "category": "backend",
+      "descEn": null,
+      "descZh": "从公开渲染的京东云（JD Cloud）中文官网首页提取的界面设计证据与规范摘要。",
+      "primaryColor": "#e1251b",
+      "tags": [
+        "#e1251b",
+        "radius:4px/8px",
+        "14px base"
+      ],
+      "font": "PingFang SC · 京东正黑 V2.1（数字）",
+      "url": "https://www.jdcloud.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "mongodb",
+      "name": "MongoDB",
+      "category": "backend",
+      "descEn": "Document database. Green leaf branding, developer documentation focus",
+      "descZh": "文档数据库，绿色技术品牌",
+      "primaryColor": "#00ed64",
+      "tags": [],
+      "font": null,
+      "url": "https://mongodb.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "oracle",
+      "name": "Oracle",
+      "category": "backend",
+      "descEn": "Enterprise cloud and database software. Warm neutral ladder, charcoal-only actions, red saved for the wordmark",
+      "descZh": null,
+      "primaryColor": "#312d2a",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "posthog",
+      "name": "PostHog",
+      "category": "backend",
+      "descEn": "Product analytics. Playful hedgehog branding, developer-friendly dark UI",
+      "descZh": "产品分析平台，温暖黄色品牌",
+      "primaryColor": "#f7a501",
+      "tags": [],
+      "font": null,
+      "url": "https://posthog.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "sanity",
+      "name": "Sanity",
+      "category": "backend",
+      "descEn": "Headless content platform with a dark-first editorial marketing surface — 112px display type, IBM Plex Mono technical eyebrows, and a single coral-red accent reserved for the highest-priority CTA.",
+      "descZh": "无头CMS平台，内容优先设计",
+      "primaryColor": "#0b0b0b",
+      "tags": [],
+      "font": null,
+      "url": "https://sanity.io/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "sentry",
+      "name": "Sentry",
+      "category": "backend",
+      "descEn": "Error monitoring. Dark dashboard, data-dense, pink-purple accent",
+      "descZh": "错误追踪平台，开发者工具深色",
+      "primaryColor": "#150f23",
+      "tags": [],
+      "font": null,
+      "url": "https://sentry.io/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "supabase",
+      "name": "Supabase",
+      "category": "backend",
+      "descEn": "Open-source Firebase alternative. Dark emerald theme, code-first",
+      "descZh": "开源Firebase替代，渐变深色技术",
+      "primaryColor": "#3ecf8e",
+      "tags": [],
+      "font": null,
+      "url": "https://supabase.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "cal",
+      "name": "Cal.com",
+      "category": "productivity",
+      "descEn": "Open-source scheduling. Clean neutral UI, developer-oriented simplicity",
+      "descZh": "Calendly风格，简洁预约排期界面",
+      "primaryColor": "#111111",
+      "tags": [],
+      "font": null,
+      "url": "https://cal.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "feishu",
+      "name": "飞书",
+      "category": "productivity",
+      "descEn": null,
+      "descZh": "基于飞书官网公开页面和飞书开放平台设计语言文档提取的中文界面设计参考。",
+      "primaryColor": "#1456F0",
+      "tags": [
+        "#1456F0",
+        "radius:6px/16px/100px",
+        "16px base"
+      ],
+      "font": "PingFang SC / Helvetica Neue / Microsoft YaHei · Lark Circular（指标数字）",
+      "url": "https://www.feishu.cn/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "intercom",
+      "name": "Intercom",
+      "category": "productivity",
+      "descEn": "Customer messaging. Friendly blue palette, conversational UI patterns",
+      "descZh": "客户沟通平台，友好绿色品牌色",
+      "primaryColor": "#111111",
+      "tags": [],
+      "font": null,
+      "url": "https://intercom.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "linear.app",
+      "name": "Linear",
+      "category": "productivity",
+      "descEn": "Project management for engineers. Ultra-minimal, precise, purple accent",
+      "descZh": "问题追踪神器，深色极简工程美学",
+      "primaryColor": "#5e6ad2",
+      "tags": [],
+      "font": null,
+      "url": "https://linear.app/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "mintlify",
+      "name": "Mintlify",
+      "category": "productivity",
+      "descEn": "Documentation platform. Clean, green-accented, reading-optimized",
+      "descZh": "文档站点生成器，简洁现代文档",
+      "primaryColor": "#0a0a0a",
+      "tags": [],
+      "font": null,
+      "url": "https://mintlify.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "notion",
+      "name": "Notion",
+      "category": "productivity",
+      "descEn": "All-in-one workspace. Warm minimalism, serif headings, soft surfaces",
+      "descZh": "笔记与协作工具，温暖纸张质感极简",
+      "primaryColor": "#5645d4",
+      "tags": [],
+      "font": null,
+      "url": "https://notion.so/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "resend",
+      "name": "Resend",
+      "category": "productivity",
+      "descEn": "Email API for developers. Minimal dark theme, monospace accents",
+      "descZh": "邮件API服务，极简开发者邮件工具",
+      "primaryColor": "#fcfdff",
+      "tags": [],
+      "font": null,
+      "url": "https://resend.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "sap",
+      "name": "SAP",
+      "category": "productivity",
+      "descEn": "Enterprise business software. White canvas, flat blue bands, application-frame chrome",
+      "descZh": null,
+      "primaryColor": "#0057d2",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "zapier",
+      "name": "Zapier",
+      "category": "productivity",
+      "descEn": "Automation platform. Warm orange, friendly illustration-driven",
+      "descZh": "自动化平台，经典蓝白效率工具",
+      "primaryColor": "#ff4f00",
+      "tags": [],
+      "font": null,
+      "url": "https://zapier.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "airtable",
+      "name": "Airtable",
+      "category": "design",
+      "descEn": "Spreadsheet-database hybrid. Colorful, friendly, structured data aesthetic",
+      "descZh": "灵活数据库+电子表格，模块化卡片式界面",
+      "primaryColor": "#181d26",
+      "tags": [],
+      "font": null,
+      "url": "https://airtable.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "clay",
+      "name": "Clay",
+      "category": "design",
+      "descEn": "Creative agency. Organic shapes, soft gradients, art-directed layout",
+      "descZh": "高端B2B销售CRM，精致卡片与渐变",
+      "primaryColor": "#0a0a0a",
+      "tags": [],
+      "font": null,
+      "url": "https://clay.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "figma",
+      "name": "Figma",
+      "category": "design",
+      "descEn": "Collaborative design tool. Vibrant multi-color, playful yet professional",
+      "descZh": "设计协作工具，标志性的深色+紫灰",
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": "https://figma.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "framer",
+      "name": "Framer",
+      "category": "design",
+      "descEn": "Website builder. Bold black and blue, motion-first, design-forward",
+      "descZh": "无代码建站工具，艺术感深色着陆页",
+      "primaryColor": "#ffffff",
+      "tags": [],
+      "font": null,
+      "url": "https://framer.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "miro",
+      "name": "Miro",
+      "category": "design",
+      "descEn": "Visual collaboration. Bright yellow accent, infinite canvas aesthetic",
+      "descZh": "在线白板协作，创意工作空间",
+      "primaryColor": "#1c1c1e",
+      "tags": [],
+      "font": null,
+      "url": "https://miro.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "webflow",
+      "name": "Webflow",
+      "category": "design",
+      "descEn": "Visual web builder. Blue-accented, polished marketing site aesthetic",
+      "descZh": "无代码建站，清晰蓝色教学风格",
+      "primaryColor": "#080808",
+      "tags": [],
+      "font": null,
+      "url": "https://webflow.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "alipay-merchant",
+      "name": "支付宝商户",
+      "category": "fintech",
+      "descEn": null,
+      "descZh": "从公开渲染的支付宝商家平台首页（b.alipay.com/page/portal/home）提取的界面设计证据与规范摘要；仅采集未登录的公开页面。",
+      "primaryColor": "#005BF8",
+      "tags": [
+        "#005BF8",
+        "radius:6/24/28/100",
+        "14px base · Ant Design"
+      ],
+      "font": "PingFang SC / Microsoft YaHei（主内容）· -apple-system（Hero + Ant 组件）· Tahoma（页脚）",
+      "url": "https://b.alipay.com/page/portal/home",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "binance",
+      "name": "Binance",
+      "category": "fintech",
+      "descEn": "Crypto exchange. Bold Binance Yellow on monochrome, trading-floor urgency",
+      "descZh": null,
+      "primaryColor": "#fcd535",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "coinbase",
+      "name": "Coinbase",
+      "category": "fintech",
+      "descEn": "Crypto exchange. Clean blue identity, trust-focused, institutional feel",
+      "descZh": "加密货币交易所，专业金融深色界面",
+      "primaryColor": "#0052ff",
+      "tags": [],
+      "font": null,
+      "url": "https://coinbase.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "kraken",
+      "name": "Kraken",
+      "category": "fintech",
+      "descEn": "Crypto trading platform. Purple-accented dark UI, data-dense dashboards",
+      "descZh": "加密货币交易所，海怪深色品牌",
+      "primaryColor": "#7132f5",
+      "tags": [],
+      "font": null,
+      "url": "https://kraken.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "mastercard",
+      "name": "Mastercard",
+      "category": "fintech",
+      "descEn": "Global payments network. Warm cream canvas, orbital pill shapes, editorial warmth",
+      "descZh": null,
+      "primaryColor": "#EB001B",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "mercury",
+      "name": "Mercury",
+      "category": "fintech",
+      "descEn": "Startup banking platform. Ink-violet night world, indigo action pill, light custom sans",
+      "descZh": null,
+      "primaryColor": "#5266eb",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "nerdwallet",
+      "name": "NerdWallet",
+      "category": "fintech",
+      "descEn": "Personal finance comparison platform. Deep spruce green, mint washes, near-square corners",
+      "descZh": null,
+      "primaryColor": "#008254",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "revolut",
+      "name": "Revolut",
+      "category": "fintech",
+      "descEn": "Digital banking. Sleek dark interface, gradient cards, fintech precision",
+      "descZh": "数字银行，现代金融科技感",
+      "primaryColor": "#494fdf",
+      "tags": [],
+      "font": null,
+      "url": "https://revolut.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "stripe",
+      "name": "Stripe",
+      "category": "fintech",
+      "descEn": "Payment infrastructure. Signature purple gradients, weight-300 elegance",
+      "descZh": "支付API平台，极致精致开发者文档",
+      "primaryColor": "#533afd",
+      "tags": [],
+      "font": null,
+      "url": "https://stripe.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "wise",
+      "name": "Wise",
+      "category": "fintech",
+      "descEn": "International money transfer. Bright green accent, friendly and clear",
+      "descZh": "国际汇款平台，简洁透明金融UI",
+      "primaryColor": "#9fe870",
+      "tags": [],
+      "font": null,
+      "url": "https://wise.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "airbnb",
+      "name": "Airbnb",
+      "category": "ecommerce",
+      "descEn": "Travel marketplace. Warm coral accent, photography-driven, rounded UI",
+      "descZh": "温馨、友好、旅行感，柔和圆角与人情味设计",
+      "primaryColor": "#ff385c",
+      "tags": [],
+      "font": null,
+      "url": "https://airbnb.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "anker",
+      "name": "安克创新 Anker",
+      "category": "ecommerce",
+      "descEn": null,
+      "descZh": "基于安克创新中国官网公开首页的设计证据，记录其导航、企业内容、联系表单与中西文排版特征。",
+      "primaryColor": "#1D1D1F",
+      "tags": [
+        "#1D1D1F",
+        "radius:4px",
+        "14px navigation"
+      ],
+      "font": "Harmony（中文条件栈）/ Mont For Anker（西文品牌字）",
+      "url": "https://www.anker.com.cn/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "meituan",
+      "name": "美团 Meituan",
+      "category": "ecommerce",
+      "descEn": null,
+      "descZh": "基于美团官网（www.meituan.com）中文公开首页提取的视觉参考。品牌黄 `#FFD100`、深墨色正文 `#111925`、大圆角卡片与自研 MTTiJ 中文字体是主要视觉语言。",
+      "primaryColor": "#FFD100",
+      "tags": [
+        "#FFD100",
+        "radius:16px/6px",
+        "16px base"
+      ],
+      "font": "MTTiJ（Hero）/ PingFang SC / Microsoft YaHei / Source Han Sans CN",
+      "url": "https://www.meituan.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "meta",
+      "name": "Meta",
+      "category": "ecommerce",
+      "descEn": "Tech retail store. Photography-first, binary light/dark surfaces, Meta Blue CTAs",
+      "descZh": null,
+      "primaryColor": "#0064e0",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "mydealz",
+      "name": "mydealz",
+      "category": "ecommerce",
+      "descEn": "German deals community. Dense white-card feed, hot and cold voting pill, brand green",
+      "descZh": null,
+      "primaryColor": "#30a83c",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "nike",
+      "name": "Nike",
+      "category": "ecommerce",
+      "descEn": "Athletic retail. Monochrome UI, massive uppercase Futura, full-bleed photography",
+      "descZh": null,
+      "primaryColor": "#111111",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "pinduoduo",
+      "name": "拼多多",
+      "category": "ecommerce",
+      "descEn": null,
+      "descZh": "从公开渲染的 pinduoduo.com 中文营销首页提取的界面设计证据与规范摘要。",
+      "primaryColor": "#fc475d",
+      "tags": [
+        "#fc475d",
+        "radius:0px",
+        "flat"
+      ],
+      "font": "浏览器默认栈 · PingFang SC / Microsoft YaHei 回退",
+      "url": "https://www.pinduoduo.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "shopify",
+      "name": "Shopify",
+      "category": "ecommerce",
+      "descEn": "E-commerce platform. Dark-first cinematic, neon green accent, ultra-light display type",
+      "descZh": null,
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "starbucks",
+      "name": "Starbucks",
+      "category": "ecommerce",
+      "descEn": "Coffee retail flagship. Four-tier earth-green system, warm cream canvas, proprietary SoDoSans typography",
+      "descZh": null,
+      "primaryColor": "#006241",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "1win",
+      "name": "1win",
+      "category": "media",
+      "descEn": "Crypto casino and sportsbook. Near-black canvas, vivid green action color, dense game-tile rails",
+      "descZh": null,
+      "primaryColor": "#00b24b",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "aljazeera",
+      "name": "Al Jazeera",
+      "category": "media",
+      "descEn": "Global news network. Flat white paper, dense Roboto headlines, orange signature and live red",
+      "descZh": null,
+      "primaryColor": "#fa9000",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "apple",
+      "name": "Apple",
+      "category": "media",
+      "descEn": "Consumer electronics. Premium white space, SF Pro, cinematic imagery",
+      "descZh": "极致简洁、大量留白、高端科技感",
+      "primaryColor": "#0066cc",
+      "tags": [],
+      "font": null,
+      "url": "https://apple.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "bilibili",
+      "name": "哔哩哔哩 bilibili",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的哔哩哔哩（bilibili）中文首页（www.bilibili.com）提取的界面设计证据与规范摘要；仅采集未登录的公开页面。",
+      "primaryColor": "#FF6699",
+      "tags": [
+        "#FF6699 直播粉",
+        "浅灰底 #F1F2F3",
+        "无阴影 · 圆角分层"
+      ],
+      "font": "-apple-system, system-ui, PingFang SC, Microsoft YaHei (system stack)",
+      "url": "https://www.bilibili.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "csdn",
+      "name": "CSDN",
+      "category": "media",
+      "descEn": null,
+      "descZh": "基于 CSDN 公开首页（www.csdn.net，未登录）实测的颜色、字体与控件 token。以品牌红橙 #FC5531 作为 CTA 与强调色，蓝色 #006FFF 用于内容链接，系统中文栈 + PingFangSC-Medium 处理主要界面文本。",
+      "primaryColor": "#FC5531",
+      "tags": [
+        "#FC5531",
+        "radius:20/16/8px",
+        "14px base"
+      ],
+      "font": "PingFang SC / Hiragino Sans GB / Microsoft YaHei · PingFangSC-Medium（CTA）",
+      "url": "https://www.csdn.net/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "dji",
+      "name": "DJI",
+      "category": "media",
+      "descEn": "Drone and camera maker. Studio product tiles, engineering-blue pills, tight Open Sans",
+      "descZh": null,
+      "primaryColor": "#0070d5",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "honor",
+      "name": "荣耀 HONOR",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的荣耀中国官网首页提取的界面设计证据与规范摘要，覆盖品牌渐变、HONOR Sans 字族与 vw 流式排版。",
+      "primaryColor": "#00b1ff",
+      "tags": [
+        "#00b1ff 品牌青蓝",
+        "青紫品红渐变 #00b1ff→#bd00fe→#ff00d0",
+        "纯黑胶囊 CTA · radius 24/48px"
+      ],
+      "font": "HONOR Sans Brand / HONOR Sans TC / HONOR Sans World（自托管字族）· vw 流式排版",
+      "url": "https://www.honor.com/cn/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "hp",
+      "name": "HP",
+      "category": "media",
+      "descEn": "PC and printer maker. Pure white canvas, HP Electric Blue signal CTA, geometric Forma DJR Micro, blue chevron decorations",
+      "descZh": null,
+      "primaryColor": "#024ad8",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "huawei",
+      "name": "华为",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的华为中国官网首页提取的界面设计证据与规范摘要。",
+      "primaryColor": "#c7000b",
+      "tags": [
+        "#c7000b",
+        "radius:16px",
+        "16px base"
+      ],
+      "font": "Microsoft YaHei / Arial / Helvetica",
+      "url": "https://www.huawei.com/cn/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "ibm",
+      "name": "IBM",
+      "category": "media",
+      "descEn": "Enterprise technology. Carbon design system, structured blue palette",
+      "descZh": "蓝色巨人企业风格，国际化专业设计",
+      "primaryColor": "#0f62fe",
+      "tags": [],
+      "font": null,
+      "url": "https://ibm.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "iqiyi",
+      "name": "爱奇艺 iQIYI",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的爱奇艺中文首页（www.iqiyi.com）提取的界面设计证据与规范摘要；仅采集未登录的公开页面。",
+      "primaryColor": "#FFD026",
+      "tags": [
+        "#111214 暗色主题",
+        "VIP 金 #FFD026",
+        "搜索框 8 0 0 8 半圆角"
+      ],
+      "font": "Harmony_Regular, PingFang SC, Microsoft YaHei · IQYHT-Bold · FZCHSJW",
+      "url": "https://www.iqiyi.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "jianshu",
+      "name": "简书 Jianshu",
+      "category": "media",
+      "descEn": null,
+      "descZh": "基于简书公开首页（www.jianshu.com/，未登录）实测的界面 token 与组件规范。以珊瑚橘 `#EA6F5A` 主色、Bootstrap 3 类命名体系、固定顶栏 + 双列内容布局与系统中文栈为主。",
+      "primaryColor": "#EA6F5A",
+      "tags": [
+        "#EA6F5A",
+        "radius:20px/4px",
+        "17px base"
+      ],
+      "font": "-apple-system / SF UI Text / PingFang SC / Hiragino Sans GB / Microsoft YaHei（正文）· SF UI Display（文章标题）",
+      "url": "https://www.jianshu.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "juejin",
+      "name": "稀土掘金 Juejin",
+      "category": "media",
+      "descEn": null,
+      "descZh": "基于掘金首页（https://juejin.cn/）未登录状态实测的颜色、字体与控件 token。以 Juejin Blue #1E80FF 为主操作色，白底信息流 + #F2F3F5 页面底色为主；系统 sans-serif 中文栈；12/13/16px 三档字号为主。",
+      "primaryColor": "#1E80FF",
+      "tags": [
+        "#1E80FF",
+        "radius:2px/4px",
+        "16px/13px/12px"
+      ],
+      "font": "-apple-system / system-ui / PingFang SC / Microsoft YaHei · 16/13/12px 三档",
+      "url": "https://juejin.cn/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "lenovo",
+      "name": "联想 Lenovo",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的联想中国官网首页（www.lenovo.com.cn）提取的界面设计证据与规范摘要。",
+      "primaryColor": "#E1140A",
+      "tags": [
+        "#E1140A",
+        "radius:0px",
+        "12px base"
+      ],
+      "font": "微软雅黑（Microsoft YaHei） · 输入框 arial / 宋体",
+      "url": "https://www.lenovo.com.cn/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "netease",
+      "name": "网易",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的网易首页提取的界面设计证据与规范摘要。",
+      "primaryColor": "#d60000",
+      "tags": [
+        "#d60000",
+        "radius:4px",
+        "12px base"
+      ],
+      "font": "PingFang SC / 系统字体栈 · 宋体（顶栏）",
+      "url": "https://www.163.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "nvidia",
+      "name": "NVIDIA",
+      "category": "media",
+      "descEn": "GPU computing. Green-black energy, technical power aesthetic",
+      "descZh": "GPU芯片巨头，深绿科技黑+光效",
+      "primaryColor": "#76b900",
+      "tags": [],
+      "font": null,
+      "url": "https://nvidia.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "oppo",
+      "name": "OPPO",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的 OPPO 中国官网首页（Find X10 系列发布期）提取的界面设计证据与规范摘要。",
+      "primaryColor": "#000000",
+      "tags": [
+        "#000000 强调",
+        "radius:0/36px",
+        "14px base"
+      ],
+      "font": "OPPOSans-Ver2（Regular / Medium）· Helvetica / Arial / system-ui 回退",
+      "url": "https://www.oppo.com/cn/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "oura",
+      "name": "Oura",
+      "category": "media",
+      "descEn": "Smart ring wellness brand. Warm paper cream, editorial serif, earth-tone accents",
+      "descZh": null,
+      "primaryColor": "#2a72de",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "pinterest",
+      "name": "Pinterest",
+      "category": "media",
+      "descEn": "Visual discovery platform. Red accent, masonry grid, image-first",
+      "descZh": "图片社交平台，明亮活泼红白",
+      "primaryColor": "#e60023",
+      "tags": [],
+      "font": null,
+      "url": "https://pinterest.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "playstation",
+      "name": "PlayStation",
+      "category": "media",
+      "descEn": "Gaming console retail. Three-surface channel layout, cyan hover-scale interaction",
+      "descZh": null,
+      "primaryColor": "#0070d1",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "slack",
+      "name": "Slacc-Inspired",
+      "category": "media",
+      "descEn": "An inspired interpretation of Slacc's design language — a workplace messaging brand built on a deep aubergine primary, with cream-lavender hero gradients, blue inline links, and pill CTAs. The system pairs a proprietary humanist sans for display with a separate utility sans for body, and stages product UI mockups inside soft pastel-mesh hero composites that act as both decoration and feature explanation.",
+      "descZh": null,
+      "primaryColor": "#4a154b",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "spacex",
+      "name": "SpaceX",
+      "category": "media",
+      "descEn": "Space technology. Stark black and white, full-bleed imagery, futuristic",
+      "descZh": "SpaceX官网，太空探索深色沉浸",
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": "https://spacex.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "spotify",
+      "name": "Spotify",
+      "category": "media",
+      "descEn": "Music streaming. Vibrant green on dark, bold type, album-art-driven",
+      "descZh": "音乐流媒体，绿色品牌深色模式",
+      "primaryColor": "#1ed760",
+      "tags": [],
+      "font": null,
+      "url": "https://spotify.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "theverge",
+      "name": "The Verge",
+      "category": "media",
+      "descEn": "Tech editorial media. Acid-mint and ultraviolet accents, Manuka display type",
+      "descZh": null,
+      "primaryColor": "#3cffd0",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "uber",
+      "name": "Uber",
+      "category": "media",
+      "descEn": "Mobility platform. Bold black and white, tight type, urban energy",
+      "descZh": "出行巨头，精致黑白企业风格",
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": "https://uber.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "vivo",
+      "name": "vivo",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的 vivo 中国官网首页提取的界面设计证据与规范摘要（2026-09-30，未登录）。",
+      "primaryColor": "#415fff",
+      "tags": [
+        "#415fff",
+        "radius:24px",
+        "vivoSansSC"
+      ],
+      "font": "vivoSansSC / VIVO-FONT-NAV · sans-serif / 微软雅黑",
+      "url": "https://www.vivo.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "vodafone",
+      "name": "Vodafone",
+      "category": "media",
+      "descEn": "Global telecom brand. Monumental uppercase display, Vodafone Red chapter bands",
+      "descZh": null,
+      "primaryColor": "#e60000",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "wired",
+      "name": "WIRED",
+      "category": "media",
+      "descEn": "Tech magazine. Paper-white broadsheet density, custom serif, ink-blue links",
+      "descZh": null,
+      "primaryColor": "#000000",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "xiaomi",
+      "name": "小米",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的小米中国官网首页提取的界面设计证据与规范摘要。",
+      "primaryColor": "#ff6900",
+      "tags": [
+        "#ff6900",
+        "radius:0",
+        "MiSans"
+      ],
+      "font": "MiSans / MI Lan Pro / serif · vw+rem 双单位响应式",
+      "url": "https://www.mi.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "youku",
+      "name": "优酷 Youku",
+      "category": "media",
+      "descEn": null,
+      "descZh": "从公开渲染的优酷官网首页（/ku/webhome）提取的暗色设计系统证据与规范摘要。",
+      "primaryColor": "#ff4f34",
+      "tags": [
+        "#ff4f34",
+        "dark theme",
+        "radius:4/8/18/30"
+      ],
+      "font": "pingfang SC / Microsoft YaHei / 微软雅黑 / 系统 sans-serif · QY_Digital-SemiBold（价格高亮）",
+      "url": "https://www.youku.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "bmw",
+      "name": "BMW",
+      "category": "automotive",
+      "descEn": "Luxury automotive. Dark premium surfaces, precise German engineering aesthetic",
+      "descZh": "德系豪华汽车官网，精致光影与深邃质感",
+      "primaryColor": "#1c69d4",
+      "tags": [],
+      "font": null,
+      "url": "https://bmw.com/",
+      "hasPreview": true,
+      "hasDark": true,
+      "sources": [
+        "VoltAgent",
+        "HU-UH"
+      ]
+    },
+    {
+      "slug": "bmw-m",
+      "name": "BMW M",
+      "category": "automotive",
+      "descEn": "Performance automotive. Motorsport-inspired contrast, M color accents, precision-driven layout",
+      "descZh": null,
+      "primaryColor": "#ffffff",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "bugatti",
+      "name": "Bugatti",
+      "category": "automotive",
+      "descEn": "Luxury hypercar. Cinema-black canvas, monochrome austerity, monumental display type",
+      "descZh": null,
+      "primaryColor": "#ffffff",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "ferrari",
+      "name": "Ferrari",
+      "category": "automotive",
+      "descEn": "Luxury automotive. Chiaroscuro black-white editorial, Ferrari Red with extreme sparseness",
+      "descZh": null,
+      "primaryColor": "#da291c",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "lamborghini",
+      "name": "Lamborghini",
+      "category": "automotive",
+      "descEn": "Luxury automotive. True black cathedral, gold accent, LamboType custom Neo-Grotesk",
+      "descZh": null,
+      "primaryColor": "#FFC000",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "renault",
+      "name": "Renault",
+      "category": "automotive",
+      "descEn": "French automotive. Vivid aurora gradients, NouvelR proprietary typeface, zero-radius buttons",
+      "descZh": null,
+      "primaryColor": "#ffed00",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "tesla",
+      "name": "Tesla",
+      "category": "automotive",
+      "descEn": "Electric vehicles. Radical subtraction, cinematic full-viewport photography, Universal Sans",
+      "descZh": null,
+      "primaryColor": "#3E6AE1",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "wechat",
+      "name": "微信开放平台",
+      "category": "social",
+      "descEn": null,
+      "descZh": "基于公开的 PC OpenSDK 接入指南，记录微信开放平台文档的颜色、中文排版、代码块与导航样式。",
+      "primaryColor": "#07c160",
+      "tags": [
+        "#07c160",
+        "14px base",
+        "PC OpenSDK 文档"
+      ],
+      "font": "系统优先 sans-serif / Consolas 等宽（代码）",
+      "url": "https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_PC_APIs/guideline.html",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "zhihu",
+      "name": "知乎",
+      "category": "social",
+      "descEn": null,
+      "descZh": "基于知乎公开登录页（www.zhihu.com/signin，未登录首页自动跳转至此）实测的颜色、字体与控件 token。以 Zhihu Blue `#1772F6` 主操作色、`--rv-*` 与 `--zFont*` 系列 CSS 变量、系统中文栈为主。",
+      "primaryColor": "#1772F6",
+      "tags": [
+        "#1772F6",
+        "radius:3px",
+        "15px base"
+      ],
+      "font": "系统中文栈（-apple-system / PingFang SC / Microsoft YaHei / Source Han Sans SC / MiSans L3）",
+      "url": "https://www.zhihu.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "amap",
+      "name": "高德",
+      "category": "travel",
+      "descEn": null,
+      "descZh": "从公开渲染的高德开放平台首页提取的界面设计证据与规范摘要。",
+      "primaryColor": "#1a66ff",
+      "tags": [
+        "#1a66ff",
+        "radius:8px/16px/14px",
+        "grad-blue"
+      ],
+      "font": "PingFangSC-Regular / Microsoft YaHei / Open Sans（头部）· -apple-system / system-ui / PingFang SC（内容）",
+      "url": "https://lbs.amap.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "ctrip",
+      "name": "携程 Ctrip",
+      "category": "travel",
+      "descEn": null,
+      "descZh": "基于携程 PC 首页（www.ctrip.com）实测的中文界面设计系统：PingFang SC 系系统黑体、固定 0.8 缩放的 1180px 两栏布局、蓝色线性渐变主动作、8/12/20px 圆角层级与 rgba(0,0,0,.06) 卡片投影。",
+      "primaryColor": "#0076F5",
+      "tags": [
+        "#0076F5",
+        "radius:8px/12px/20px",
+        "14px base · zoom:0.8"
+      ],
+      "font": "PingFang SC / Helvetica / Microsoft YaHei / Heiti SC · 无自托管中文字体",
+      "url": "https://www.ctrip.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "didi",
+      "name": "滴滴",
+      "category": "travel",
+      "descEn": null,
+      "descZh": "基于滴滴官网（didiglobal.com）中文公开页面提取的视觉参考。品牌橙、自定义 DFP 中文字体与 50% 圆形裁切是主要视觉语言。",
+      "primaryColor": "#FF7F41",
+      "tags": [
+        "#FF7F41",
+        "radius:50%",
+        "12px base"
+      ],
+      "font": "DFPKingGothicGB-Regular / Medium · Aspira Regular / Light · avgardn（数字）",
+      "url": "https://www.didiglobal.com/",
+      "hasPreview": true,
+      "hasDark": false,
+      "sources": [
+        "awesome-design-md-cn"
+      ]
+    },
+    {
+      "slug": "dell-1996",
+      "name": "Dell (1996)",
+      "category": "retro",
+      "descEn": "Catalog-era enterprise web. Literal black page frame, flat color-block \"ribbon cards\", chunky Helvetica-Black titles over Times Roman body, and hand-cut GIF stickers (NEW! bursts, award seals, beveled product photos).",
+      "descZh": null,
+      "primaryColor": "#e91d2a",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    },
+    {
+      "slug": "nintendo-2001",
+      "name": "Nintendo.com (2001)",
+      "category": "retro",
+      "descEn": "Y2K \"console chrome\" web. Brushed-periwinkle beveled metal panels, a halftone-dotted carbon nav glowing amber, outlined Arial-Black box-art wordmarks over circuit-board hero fields, and a pixel Mario welcome bubble.",
+      "descZh": null,
+      "primaryColor": "#e60012",
+      "tags": [],
+      "font": null,
+      "url": null,
+      "hasPreview": false,
+      "hasDark": false,
+      "sources": [
+        "VoltAgent"
+      ]
+    }
+  ]
+}
